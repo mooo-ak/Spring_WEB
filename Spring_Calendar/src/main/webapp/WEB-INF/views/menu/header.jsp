@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">Logo</a>
+      <a class="navbar-brand" href="./">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -24,7 +25,17 @@
         <li><a href="#portfolio">PORTFOLIO</a></li>
         <li><a href="#pricing">PRICING</a></li>
         <li><a href="#contact">CONTACT</a></li>
-        <li><a href="./getLogin.do">로그인</a></li>
+        
+        <!-- 로그인 유무에 따른 header 변경 시작-->
+        <c:choose>
+	        <c:when test="${sessionScope.loginInfo != null}">
+	            <li><a href="./logout.do">로그아웃</a></li>
+	        </c:when>
+	        <c:otherwise>
+	            <li><a href="./loginForm.do">로그인</a></li>
+	        </c:otherwise>
+        </c:choose>
+        <!-- 로그인 유무에 따른 header 변경 종료-->
       </ul>
     </div>
   </div>

@@ -23,9 +23,9 @@
 	<main class="container">
 		<div class="login-wrapper">
 			<h2>Login</h2>
-			<form action="/login.do" method="post" class="login-form">
+			<form action="./login.do" method="post" class="login-form">
 				<input type="text" name="user_id" placeholder="ID 입력">
-				<input type="text" name="password" placeholder="PASSWORD 입력">
+				<input type="password" name="password" placeholder="PASSWORD 입력">
 <!-- 				<label for="remember-check"> -->
 <!-- 					<input type="checkbox" id="remember-check"> 아이디 저장하기 -->
 <!-- 				</label> -->
