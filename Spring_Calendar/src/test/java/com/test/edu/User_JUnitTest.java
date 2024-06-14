@@ -3,6 +3,7 @@ package com.test.edu;
 import static org.junit.Assert.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -11,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.min.edu.dto.CalendarDto;
 import com.min.edu.dto.UserDto;
+import com.min.edu.service.ICalendarService;
 import com.min.edu.service.IUserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,7 +24,10 @@ public class User_JUnitTest {
 	@Autowired
 	private IUserService uService;
 
-	@Test
+	@Autowired
+	private ICalendarService cSerive;
+	
+//	@Test
 	public void loginTest() {
 		// 로그인 테스트
 		Map<String, Object> map = new HashMap<>();
@@ -29,6 +35,14 @@ public class User_JUnitTest {
 		map.put("password", "HIHI");
 		UserDto loginInfo = uService.getLogin(map);
 		assertNotNull(loginInfo);
+	}
+	
+//	@Test
+	public void getAllCalendar() {
+		// 일정 전체조회 테스트
+		List<CalendarDto> lists = cSerive.getAllSchedule();
+		assertNotNull(lists);
+		
 	}
 
 }
