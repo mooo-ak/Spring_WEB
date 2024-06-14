@@ -45,10 +45,14 @@
 		</div>
 		<!-- Modal content body-->
 		<div class="modal-body">
+			<label for="taskId" class="col-form-label">카테고리</label> 
+			<input type="text" class="form-control" id="calendar_category" name="cal_category">
 			<label for="taskId" class="col-form-label">일정 제목</label> 
 			<input type="text" class="form-control" id="calendar_title" name="cal_title">
 			<label for="taskId" class="col-form-label">일정 내용</label> 
 			<input type="text" class="form-control" id="calendar_content" name="cal_content"> 
+			<label for="taskId" class="col-form-label">작성자</label> 
+			<input type="text" class="form-control" id="calendar_writer" name="cal_writer"> 
 			<label for="taskId" class="col-form-label">시작 날짜</label> 
 			<input type="date" class="form-control" id="calendar_start" name="cal_start">
 			<label for="taskId" class="col-form-label">종료 날짜</label> 

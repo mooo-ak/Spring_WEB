@@ -10,6 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.min.edu.dto.CalendarDto;
 import com.min.edu.service.ICalendarService;
@@ -53,6 +57,23 @@ public class CalendarController {
 	        return new ResponseEntity<>(events, HttpStatus.OK);
 	    }
 	
+	 
+	 @PostMapping (value = "/insertSchedule.do")
+	 @ResponseBody
+	 public String insertSchedule(@RequestBody CalendarDto cDto) {
+		 log.info("CalendarController insertSchedule : 서버로 일정 등록 데이터 전달");
+		 int result = cSerive.insertSchedule(cDto);
+		 return (result>0)? "/getCalendar.do" : "";
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	 /* ------------------------------------------------------------------------
 	  * 시행착오 01
 	 @GetMapping("/getAllSchedule.do")

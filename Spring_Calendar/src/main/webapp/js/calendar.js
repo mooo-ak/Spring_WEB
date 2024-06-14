@@ -30,17 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         // 이벤트가 캘린더에 렌더링된 후에 호출되는 콜백 함수
         eventDidMount: function(info) {
-            console.log('이벤트의 세부 정보를 확인:', info.event);
-            
+            console.log('이벤트의 세부 정보를 확인:', info.event);           
         },
         // 날짜를 클릭했을 때 발생할 이벤트 : 일정 등록 modal
-        dateClick: function(info) {
+        dateClick: function() {
 	 		$('#calendarModal').modal('show');
-	 		// [ 참고 예시 ]
-		    // alert('Date: ' + info.dateStr);
-		    // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-		    // alert('Current view: ' + info.view.type);
-		    // info.dayEl.style.backgroundColor = 'red';
+	 	// 추가버튼 클릭시 일정 등록
+	 		insertSchedule(); 
 		}
 		
     }); // Calendar END
@@ -48,7 +44,49 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
 });
         
+// ------------------------------------------> [ 일정등록 ] 추가 addCalendar button 
+function insertSchedule(){
+	$('#addCalendar').on('click', function(){
+	const formData = {
+        cal_category: $('#calendar_category').val(),
+        cal_title: $('#calendar_title').val(),
+        cal_content: $('#calendar_content').val(),
+        cal_writer: $('#calendar_writer').val(),
+        cal_start: $('#calendar_start').val(),
+        cal_end: $('#calendar_end').val()
+    };
+    console.log('입력된 데이터 확인: ' + formData);
     
+     $.ajax({
+        type: 'POST',
+        url: './insertSchedule.do',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function(response) {
+            console.log("서버 응답:", response);
+            if (response) {
+                calendar.addEvent({
+                    id: formData.cal_no,
+                    title: formData.cal_title,
+                    start: formData.cal_start,
+                    end: formData.cal_end,
+                    description: formData.cal_content
+                });
+                $('#calendarModal').modal('hide');
+            } else {
+                alert("일정 등록에 실패했습니다.");
+                $("#form")[0].reset(); // 폼 초기화
+            	$("#addCalendar").modal("hide");
+            }
+        },
+        error: function(error) {
+            console.error("에러 발생:", error);
+            alert("서버 오류가 발생했습니다.");
+        }
+    });
+ 
+});
+}    
     
     
     

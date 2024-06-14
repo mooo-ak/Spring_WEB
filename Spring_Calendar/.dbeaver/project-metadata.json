@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Calendar_User.sql":{"default-datasource":"oracle_thin-1900b5c2005-78afbc698bdec2f5","default-schema":"JIA"}}}
+{"resources":{"Scripts/Calendar.sql":{"default-datasource":"oracle_thin-1900b5c2005-78afbc698bdec2f5","default-schema":"JIA"},"Scripts/Calendar_User.sql":{"default-schema":"JIA","default-datasource":"oracle_thin-1900b5c2005-78afbc698bdec2f5"}}}

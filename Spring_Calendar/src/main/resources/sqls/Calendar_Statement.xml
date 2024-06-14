@@ -6,5 +6,11 @@
 		SELECT CAL_NO, CAL_CATEGORY, CAL_TITLE, CAL_CONTENT, CAL_WRITER, CAL_START, CAL_END, CAL_REGDATE, CAL_MODIFY, CAL_DELFLAG, CAL_BIGO
 		FROM CALENDAR
 	</select>
+	
+	<insert id="insertSchedule">
+		INSERT INTO CALENDAR (CAL_NO, CAL_CATEGORY, CAL_TITLE, CAL_CONTENT, CAL_WRITER, CAL_START, CAL_END, CAL_DELFLAG)
+		SELECT NVL(MAX(CAL_NO) + 1, 0) AS CAL_NO, #{cal_category}, #{cal_title}, #{cal_content}, #{cal_writer}, #{cal_start}, #{cal_end}, 'N'
+		FROM CALENDAR
+	</insert>
 
 </mapper>

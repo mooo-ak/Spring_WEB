@@ -8,4 +8,6 @@ public interface ICalendarService {
 
 	public List<CalendarDto> getAllSchedule(); 
 	
+	public int insertSchedule(CalendarDto cDto);
+	
 }

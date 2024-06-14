@@ -7,5 +7,7 @@ import com.min.edu.dto.CalendarDto;
 public interface ICalendarDao {
 	
 	public List<CalendarDto> getAllSchedule(); 
+	
+	public int insertSchedule(CalendarDto cDto);
 
 }

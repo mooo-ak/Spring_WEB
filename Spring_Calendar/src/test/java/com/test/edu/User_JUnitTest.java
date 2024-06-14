@@ -44,5 +44,20 @@ public class User_JUnitTest {
 		assertNotNull(lists);
 		
 	}
+	
+	@Test
+	public void insertSchedule() {
+		// 일정 등록 테스트
+		CalendarDto cDto = new CalendarDto();
+		cDto.setCal_category("공지사항");
+		cDto.setCal_title("공지사항 제목");
+		cDto.setCal_content("공지사항을 말씀드립니다");
+		cDto.setCal_writer("하이");
+		cDto.setCal_start("2024-06-14");
+		cDto.setCal_end("2024-06-15");
+		
+		int result = cSerive.insertSchedule(cDto);
+		assertEquals(1, result);
+	}
 
 }
