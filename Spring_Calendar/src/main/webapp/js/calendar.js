@@ -9,11 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		// 캘린더 높이 : [정수] px 높이로 자동설정. 높이에 맞지 않을 시 스크롤바 자동 생성
 		height: 650,
 		// 캘린더 언어
-		locale: 'ko',
+		// locale: 'ko',
 		// 캘린더 클릭 및 드래그 : true
 		selectable: true,
 		// 날짜 클릭 → today 일정으로 이동
 		navLinks: true,
+		// 이벤트가 너무 많을때 + more
+		dayMaxEvents: true,
 		// 캘린더 Header 설정 
 		headerToolbar: {
 			left: 'today prev,next',
@@ -37,12 +39,72 @@ document.addEventListener('DOMContentLoaded', function() {
 	 		$('#calendarModal').modal('show');
 	 	// 추가버튼 클릭시 일정 등록
 	 		insertSchedule(); 
-		}
+		},
+		  eventClick: function(info) {
+			 var cal_no = info.event.id;
+			 $.ajax ({
+				url: './getDetailSchedule.do',
+				type: 'GET',
+				data: { cal_no: cal_no },
+				success: function(scheduleInfo) {
+				 $('#calendar_category_detail').val(scheduleInfo.cal_category);
+	             $('#calendar_title_detail').text(scheduleInfo.cal_title);
+	             $('#calendar_content_detail').text(scheduleInfo.cal_content);
+	             $('#calendar_writer_detail').text(scheduleInfo.cal_writer);
+		 	     $('#calendar_start_detail').text(scheduleInfo.cal_start);
+			     $('#calendar_end_detail').text(scheduleInfo.cal_end);
+				  
+				  $('#scheduleModal').modal('show');
+				},
+				error: function(){
+					alert('일정 정보를 불러오는 데 실패했습니다.');
+				}
+			});		
+	    }
+
 		
     }); // Calendar END
 
     calendar.render();
+    
+	calendar.on('eventClick', function(info){
+		document.getElementById('delCalendar').addEventListener('click', function(){
+			console.log(info.event.id);
+			
+			
+//			info.event.remove();
+//			$("#form")[0].reset(); // 폼 초기화
+//            $("#scheduleModal").modal("hide");
+		});
+	});    
+
+	
+
 });
+     
+// ------------------------------------------> [ 일정조회 ] 상세조회 
+/*
+function detailSchedule(info) {
+	var cal_no = info.event.id;
+	
+	$.ajax ({
+		url: './getDetailSchedule.do',
+		type: 'GET',
+		data: { cal_no: cal_no },
+		success: function(scheduleInfo) {
+		  $('#calendar_category').val(scheduleInfo.cal_category);
+          $('#calendar_title').text(scheduleInfo.cal_title);
+          $('#calendar_content').val(scheduleInfo.cal_content);
+          $('#calendar_writer').val(scheduleInfo.cal_writer);
+          $('#calendar_start').val(scheduleInfo.cal_start);
+          $('#calendar_end').val(scheduleInfo.cal_end);
+		},
+		error: function(){
+			alert('일정 정보를 불러오는 데 실패했습니다.');
+		}
+	});
+}     
+*/     
         
 // ------------------------------------------> [ 일정등록 ] 추가 addCalendar button 
 function insertSchedule(){

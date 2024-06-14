@@ -9,5 +9,7 @@ public interface ICalendarDao {
 	public List<CalendarDto> getAllSchedule(); 
 	
 	public int insertSchedule(CalendarDto cDto);
+	
+	public CalendarDto getDetailSchedule(String cal_no);
 
 }

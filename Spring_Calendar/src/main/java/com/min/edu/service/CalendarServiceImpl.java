@@ -28,5 +28,11 @@ public class CalendarServiceImpl implements ICalendarService {
 		log.info("CalendarServiceImpl insertSchedule : 일정 등록 {}", cDto);
 		return cDao.insertSchedule(cDto);
 	}
+	
+	@Override
+	public CalendarDto getDetailSchedule(String cal_no) {
+		log.info("CalendarServiceImpl getDetailSchedule : {}번 일정 조회", cal_no);
+		return cDao.getDetailSchedule(cal_no);
+	}
 
 }

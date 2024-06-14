@@ -10,4 +10,8 @@ public interface ICalendarService {
 	
 	public int insertSchedule(CalendarDto cDto);
 	
+	public CalendarDto getDetailSchedule(String cal_no);
+	
+	
+	
 }
