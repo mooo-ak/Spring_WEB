@@ -12,6 +12,8 @@ public interface ICalendarService {
 	
 	public CalendarDto getDetailSchedule(String cal_no);
 	
+	public int updateSchedule(CalendarDto cDto);
 	
+	public int delSchedule(String cal_no);
 	
 }

@@ -1,3 +1,7 @@
+var modifyButton = document.getElementById('modifyCalendar');
+var updateTags = document.querySelectorAll('.updateTag');
+var updateDates = document.querySelectorAll('.updateDate');
+
 
 /* 캘린더 랜더링 */
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		navLinks: true,
 		// 이벤트가 너무 많을때 + more
 		dayMaxEvents: true,
+		editable: true, // 이벤트를 드래그하여 수정할 수 있도록 설정
 		// 캘린더 Header 설정 
 		headerToolbar: {
 			left: 'today prev,next',
@@ -34,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
         eventDidMount: function(info) {
             console.log('이벤트의 세부 정보를 확인:', info.event);           
         },
+        eventDrop: function(info) {
+	      updateEvent(info.event);
+	    },
+	    eventResize: function(info) {
+	      updateEvent(info.event);
+	    },
         // 날짜를 클릭했을 때 발생할 이벤트 : 일정 등록 modal
         dateClick: function() {
 	 		$('#calendarModal').modal('show');
@@ -48,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				data: { cal_no: cal_no },
 				success: function(scheduleInfo) {
 				 $('#calendar_category_detail').val(scheduleInfo.cal_category);
-	             $('#calendar_title_detail').text(scheduleInfo.cal_title);
-	             $('#calendar_content_detail').text(scheduleInfo.cal_content);
-	             $('#calendar_writer_detail').text(scheduleInfo.cal_writer);
-		 	     $('#calendar_start_detail').text(scheduleInfo.cal_start);
-			     $('#calendar_end_detail').text(scheduleInfo.cal_end);
+	             $('#calendar_title_detail').val(scheduleInfo.cal_title);
+	             $('#calendar_content_detail').val(scheduleInfo.cal_content);
+	             $('#calendar_writer_detail').val(scheduleInfo.cal_writer);
+		 	     $('#calendar_start_detail').val(scheduleInfo.cal_start);
+			     $('#calendar_end_detail').val(scheduleInfo.cal_end);
 				  
 				  $('#scheduleModal').modal('show');
 				},
@@ -66,9 +77,125 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calendar.render();
     
-	calendar.on('eventClick', function(info){
-		document.getElementById('delCalendar').addEventListener('click', function(){
-			console.log(info.event.id);
+
+    
+    
+    
+    
+    
+    calendar.on('eventClick', function updateModal(){
+	modifyButton.addEventListener('click', function(){
+		
+        modifyButton.id = 'updateCalendar';
+        modifyButton.innerText = '등록';  
+	
+		
+		
+		updateTags.forEach(function(updateTag){
+			updateTag.removeAttribute('readonly');
+		})
+		
+		
+		updateDates.forEach(function(updateDate){
+			updateDate.type = 'date';
+		})
+		
+		 var category = document.getElementById('calendar_category_detail');
+                        
+        // Create a new select element
+        var selectElement = document.createElement('select');
+        selectElement.id = 'calendar_category_detail';
+        selectElement.name = 'cal_category';
+        selectElement.style.width = '100%';
+        selectElement.style.padding = '8px';
+
+        // Add options to the select element
+        var options = ['공지사항', '개인일정', '연차/휴가', '외근/출장'];
+        options.forEach(function(optionText) {
+            var option = document.createElement('option');
+            option.value = optionText;
+            option.text = optionText;
+            selectElement.appendChild(option);
+        });
+        // Replace the input element with the select element
+        category.parentNode.replaceChild(selectElement, category);
+	
+		
+	})
+})
+    
+
+    
+calendar.on('eventClick', function(info) {
+    document.getElementById('delCalendar').addEventListener('click', function() {
+        console.log("Clicked event ID: ", info.event.id);
+        if (confirm("일정을 정말 삭제하시겠습니까?")) {
+            $.ajax({
+                url: './delSchedule.do',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({ cal_no: info.event.id }),
+                success: function(response) {
+                    console.log("Success response: ", response);
+                    if (response) {
+                        info.event.remove();
+                        $("#scheduleModal").modal("hide");
+                    }
+                },
+                error: function(error) {
+                    console.log("Error response: ", error);
+                    alert('일정 삭제에 실패하였습니다.');
+                }
+            });
+        }
+			
+    calendar.on('eventClick', function updateSchedule(){
+var updateBtn = document.getElementById('updateCalendar');
+
+            updateBtn.addEventListener('click', function() {
+                const formData = {
+                    cal_no: info.event.id,
+                    cal_category: $('#calendar_category').val(),
+                    cal_title: $('#calendar_title_detail').val(),
+                    cal_content: $('#calendar_content_detail').val(),
+                    cal_writer: $('#calendar_writer_detail').val(),
+                    cal_start: $('#calendar_start_detail').val(),
+                    cal_end: $('#calendar_end_detail').val()
+                };
+
+                $.ajax({
+                    type: 'PUT',
+                    url: './updateSchedule.do',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        console.log("서버 응답:", response);
+                        if (response) {
+                            var event = calendar.getEventById(formData.cal_no);
+                            event.setProp('title', formData.cal_title);
+                            event.setStart(formData.cal_start);
+                            event.setEnd(formData.cal_end);
+                            event.setExtendedProp('description', formData.cal_content);
+
+                            alert("일정 변경에 성공했습니다.");
+                            $('#calendarModal').modal('hide');
+                        } else {
+                            alert("일정 변경에 실패했습니다.");
+                            $('#calendarModal').modal('hide');
+                        }
+                    },
+                    error: function(error) {
+                        console.error("에러 발생:", error);
+                        alert("서버 오류가 발생했습니다.");
+                    }
+			
+		})
+    	
+    	
+    			
+		})
+	
+	})
 			
 			
 //			info.event.remove();

@@ -6,6 +6,7 @@
 	<select id="getAllSchedule">
 		SELECT CAL_NO, CAL_CATEGORY, CAL_TITLE, CAL_CONTENT, CAL_WRITER, CAL_START, CAL_END, CAL_REGDATE, CAL_MODIFY, CAL_DELFLAG, CAL_BIGO
 		FROM CALENDAR
+		WHERE CAL_DELFLAG ='N'
 	</select>
 	
 	<!-- 일정 상세조회 -->
@@ -21,5 +22,19 @@
 		SELECT NVL(MAX(CAL_NO) + 1, 0) AS CAL_NO, #{cal_category}, #{cal_title}, #{cal_content}, #{cal_writer}, #{cal_start}, #{cal_end}, 'N'
 		FROM CALENDAR
 	</insert>
+	
+	<!-- 일정 수정 -->
+	<update id="updateSchedule">
+		UPDATE CALENDAR 
+		SET CAL_CATEGORY=#{cal_category}, CAL_TITLE = #{cal_title}, CAL_CONTENT = #{cal_content}, CAL_START=#{cal_start}, CAL_END=#{cal_end}, CAL_MODIFY=CURRENT_DATE
+		WHERE CAL_NO = #{cal_no}
+	</update>
+	
+	<!-- 일정 삭제 -->
+	<update id="delSchedule">
+		UPDATE CALENDAR
+		SET CAL_DELFLAG = 'Y', CAL_MODIFY = CURRENT_DATE 
+		WHERE CAL_NO = #{cal_no}
+	</update>
 
 </mapper>

@@ -36,5 +36,16 @@ public class CalendarDaoImpl implements ICalendarDao {
 		log.info("CalendarDaoImpl insertSchedule : 일정 상세조회 DAO ACCESS");
 		return session.selectOne(NS+"getDetailSchedule", cal_no);
 	}
+	
+	@Override
+	public int updateSchedule(CalendarDto cDto) {
+		log.info("CalendarDaoImpl updateSchedule : 일정 수정 DAO ACCESS");
+		return session.update(NS+"updateSchedule", cDto);
+	}
 
+	@Override
+	public int delSchedule(String cal_no) {
+		log.info("CalendarDaoImpl delSchedule : 일정 삭제 DAO ACCESS");
+		return session.update(NS+"delSchedule", cal_no);
+	}
 }

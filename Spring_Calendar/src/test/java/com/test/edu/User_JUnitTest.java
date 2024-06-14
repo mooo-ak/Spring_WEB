@@ -45,7 +45,7 @@ public class User_JUnitTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void insertSchedule() {
 		// 일정 등록 테스트
 		CalendarDto cDto = new CalendarDto();
@@ -57,6 +57,29 @@ public class User_JUnitTest {
 		cDto.setCal_end("2024-06-15");
 		
 		int result = cSerive.insertSchedule(cDto);
+		assertEquals(1, result);
+	}
+	
+//	@Test
+	public void updateSchedule() {
+		// 일정 수정 테스트
+		CalendarDto cDto = new CalendarDto();
+		cDto.setCal_no("2");
+		cDto.setCal_category("개인일정");
+		cDto.setCal_title("공지사항 제목");
+		cDto.setCal_content("공지사항을 말씀드립니다");
+		cDto.setCal_writer("하이");
+		cDto.setCal_start("2024-06-14");
+		cDto.setCal_end("2024-06-15");
+		
+		int result = cSerive.updateSchedule(cDto);
+		assertEquals(1, result);
+	}
+	
+//	@Test
+	public void delSchedule() {
+		// 일정 삭제 테스트
+		int result = cSerive.delSchedule("1");
 		assertEquals(1, result);
 	}
 

@@ -43,7 +43,7 @@
 		<!-- Modal content header-->
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">일정을 등록하세요</h4>
+			<h4 class="modal-title">일정 등록</h4>
 		</div>
 		<!-- Modal content body-->
 		<div class="modal-body">
@@ -84,28 +84,32 @@
 	      <!-- Modal content header-->
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">일정을 확인하세요</h4>
+	        <h4 class="modal-title">상세 일정</h4>
 	      </div>
 	      <!-- Modal content body-->
 	      <div class="modal-body">
 	        <label for="calendar_category" class="col-form-label">카테고리</label>
-	        <input type="text" class="form-control" id="calendar_category_detail" name="cal_category_detail">
-			<!-- <div id="calendar_category_detail"></div> -->
+	        <input type="text" class="updateTag form-control" id="calendar_category_detail" name="cal_category" readonly="readonly">
 	        <label for="calendar_title" class="col-form-label">일정 제목</label>
-	        <div id="calendar_title_detail"></div>
+	        <input type="text" class="updateTag form-control" id="calendar_title_detail" name="cal_title" readonly="readonly">
 	        <label for="calendar_content" class="col-form-label">일정 내용</label>
-	        <div id="calendar_content_detail"></div>
+	        <input type="text" class="updateTag form-control" id="calendar_content_detail" name="cal_content" readonly="readonly">
 	        <label for="calendar_writer" class="col-form-label">작성자</label>
-	        <div id="calendar_writer_detail"></div>
+	        <input type="text" class="updateTag form-control" id="calendar_writer_detail" name="cal_writer" readonly="readonly">
 	        <label for="calendar_start" class="col-form-label">시작 날짜</label>
-	        <div id="calendar_start_detail"></div>
+	        <input type="text" class="updateTag updateDate form-control" id="calendar_start_detail" name="cal_start" readonly="readonly">
 	        <label for="calendar_end" class="col-form-label">종료 날짜</label>
-	        <div id="calendar_end_detail"></div>
+	        <input type="text" class="updateTag updateDate form-control" id="calendar_end_detail" name="cal_end" readonly="readonly">
 	      </div>
 	      <div class="modal-footer">
+	      	<div class="btn-group1">	      	
 	        <button type="button" class="btn btn-warning" id="modifyCalendar">수정</button>
-	        <button type="button" class="btn btn-warning" id="delCalendar">삭제</button>
 	        <button type="button" class="btn btn-secondary" id="ModalClose" data-dismiss="modal">취소</button>
+	        </div>
+	        <div class="btn_group2" style="display: none">
+	        <button type="button" class="btn btn-secondary" id="updateCalendar">등록</button>
+	        <button type="button" class="btn btn-warning" id="delCalendar">삭제</button>
+	      	</div>
 	      </div>
 	    </div>
 	  </div>
@@ -120,5 +124,5 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js" 
 integrity="sha256-hk2Q9BXDSq54aGHbj6/T9up41uNJ5tLQw49s0HqWfPw=" crossorigin="anonymous"></script>
 <!-- 캘린더 상세 구현을 위한 js 연결 -->
-<script src="./js/calendar.js"></script>
+<script src="./js/calendar/calendar_ver02.js"></script>
 </html>

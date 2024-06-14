@@ -9,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.min.edu.dto.CalendarDto;
@@ -73,10 +71,25 @@ public class CalendarController {
 	 public CalendarDto detailSchedule(String cal_no) {
 	     log.info("CalendarController detailSchedule : 일정 상세조회");
 	     CalendarDto scheduleInfo = cSerive.getDetailSchedule(cal_no);
-	     System.out.println(scheduleInfo);
 	     return scheduleInfo;
 	 }
 	 
+	 @PutMapping(value = "/updateSchedule.do")
+	 @ResponseBody
+	 public String updateSchedule(@RequestBody CalendarDto cDto) {
+	     log.info("CalendarController updateSchedule : 일정 업데이트");
+	     int update = cSerive.updateSchedule(cDto);
+	     return (update > 0)? "/getCalendar.do" : "" ;
+	 }
+
+	 
+	 @PutMapping(value = "/delSchedule.do")
+	 public ResponseEntity<?> delSchedule(@RequestBody Map<String, String> map) {
+	     log.info("CalendarController delSchedule : 일정삭제");
+		 String cal_no = map.get("cal_no");
+	     int del = cSerive.delSchedule(cal_no);
+	     return (del > 0) ? ResponseEntity.ok("삭제 성공!") : ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting event");
+	 }
 	 
 	 
 	 
