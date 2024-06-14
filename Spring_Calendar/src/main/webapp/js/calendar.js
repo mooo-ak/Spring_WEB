@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			});		
 	    }
 
-		
     }); // Calendar END
 
     calendar.render();
