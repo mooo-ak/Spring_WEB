@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.min.edu.mapper.BoardDaoImpl">
+
+	
+	<!-- 게시글 조회 -->
+	<select id="boardList" resultType="BoardDto">
+		SELECT B_SEQ, B_TITLE, B_WRITER, B_CREATEAT, B_DELFLAG
+		FROM BOARDTEST 
+		ORDER BY B_SEQ DESC
+	</select>
+
+	<!-- 게시글 상세조회 -->
+	<select id="detailBoard" resultType="BoardDto">
+		SELECT B_SEQ, B_WRITER,
+		B_TITLE, B_CONTENT, TO_CHAR(B_CREATEAT,'YYYY-MM-DD') AS B_CREATEAT
+		FROM BOARDTEST 
+		WHERE B_SEQ = #{b_seq}
+	</select>
+
+	<!-- 게시글 작성 -->
+	<insert id="writeBoard">
+		INSERT INTO BOARDTEST (B_SEQ, B_TITLE, B_CONTENT, B_WRITER)
+		VALUES (BOARDTEST_BO_SEQ.NEXTVAL, #{b_title}, #{b_content}, #{b_writer})
+	</insert>
+
+	<!-- 게시글 수정 -->
+	<update id="modifyBoard">
+		UPDATE BOARDTEST
+		SET B_TITLE = #{b_title},
+		B_CONTENT = #{b_content},
+		B_CREATEAT = TO_CHAR(CURRENT_DATE,'YYYY-MM-DD')
+		WHERE B_SEQ = #{b_seq}
+	</update>
+
+	<!-- 게시글 삭제 -->
+	<update id="delBoard">
+		UPDATE BOARDTEST
+		SET B_DELFLAG = 'Y'
+		WHERE B_SEQ = #{b_seq}
+	</update>
+	
+	<!-- 첨부파일 등록 트랜젝션 : b_seq 부터 찾은 다음 파일 등록-->
+	<insert id="insertFile">
+		<selectKey keyProperty="b_seq" order="BEFORE" resultType="String">
+			SELECT MAX(B_SEQ)
+				FROM BOARDTEST
+		</selectKey>
+		INSERT INTO FILEBOARD (F_SEQ, B_SEQ, ORIGIN_FILENAME, STORED_FILENAME, FILE_SIZE, F_REGDATE, F_DELFLAG, F_DATA)
+			VALUES ((SELECT NVL(MAX(F_SEQ) + 1, 0) AS F_SEQ FROM FILEBOARD), #{b_seq}, 
+					#{origin_filename}, #{stored_filename}, #{file_size}, TO_CHAR(CURRENT_DATE,'YYYY-MM-DD'), 'N', #{f_data})
+	</insert>
+	
+	<!-- 첨부파일 다운로드 -->
+	<select id="getFile" resultType="FileDto">
+		SELECT B_SEQ, F_SEQ, ORIGIN_FILENAME, STORED_FILENAME, FILE_SIZE, F_REGDATE, F_DELFLAG, F_DATA
+			FROM FILEBOARD f 
+			WHERE B_SEQ = #{b_seq}
+	</select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.min.edu.dto.UserDto" alias="UserDto"/>
+		<typeAlias type="com.min.edu.dto.CalendarDto" alias="CalendarDto"/>
+		<typeAlias type="com.min.edu.dto.BoardDto" alias="BoardDto"/>
+		<typeAlias type="com.min.edu.dto.FileDto" alias="FileDto"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="sqls/User_Statement.xml"/>
+		<mapper resource="sqls/Calendar_Statement.xml"/>
+		<mapper resource="sqls/Board_Statement.xml"/>
+	</mappers>
+
+</configuration>

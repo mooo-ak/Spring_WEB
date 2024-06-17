@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.mapper.UserDaoImpl">
+
+	<!-- 회원가입 -->
+	<insert id="signUp">
+		INSERT INTO CALENDAR_USER (USER_ID, PASSWORD, USERNAME, NICKNAME, USEREMAIL, USERPHONE)
+		VALUES (#{user_id}, #{password}, #{username}, #{nickname}, #{useremail}, #{userphone})
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="getLogin" parameterType="java.util.Map" resultType="UserDto">
+		SELECT USER_ID, PASSWORD, USERNAME, NICKNAME, USEREMAIL, USERPHONE, SIGNUP_DATE, AUTH, DROPOUT
+		FROM CALENDAR_USER 
+		WHERE USER_ID = #{user_id} 
+		AND PASSWORD = #{password}
+		AND DROPOUT = 'N'
+	</select>
+
+
+</mapper>
