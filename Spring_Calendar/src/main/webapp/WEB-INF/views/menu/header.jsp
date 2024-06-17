@@ -24,7 +24,7 @@
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#portfolio">PORTFOLIO</a></li>
         <li><a href="./getCalendar.do">캘린더</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="./getBoard.do">CONTACT</a></li>
         
         <!-- 로그인 유무에 따른 header 변경 시작-->
         <c:choose>
