@@ -1,0 +1,46 @@
+/* 토요일 날짜 색상 */   
+.fc-scrollgrid-sync-table tr td:last-child .fc-daygrid-day-number{
+   color:blue;
+   }
+
+/* 일요일 날짜 색상 */
+.fc-scrollgrid-sync-table tr td:first-child .fc-daygrid-day-number{
+   color:red;
+   }
+
+/* 공지사항 */  
+.category-notice {
+   --fc-event-border-color: blue;
+   color: blue;
+}
+.category-notice .fc-event-main-frame {
+	background-color: blue;
+}
+
+/* 개인일정 */
+.category-personal {
+   --fc-event-border-color: green;
+   color: green;
+}
+.category-personal .fc-event-main-frame {
+	background-color: green;
+}
+
+/* 연차/휴가 */
+.category-vacation {
+   --fc-event-border-color: red;
+   color: red;
+}
+.category-vacation .fc-event-main-frame {
+	background-color: red;
+}
+
+/* 외근/출장 */
+.category-business {
+   --fc-event-border-color: orange;
+   color: orange;
+}
+.category-business .fc-event-main-frame {
+	background-color: orange;
+}
+
