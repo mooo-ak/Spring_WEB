@@ -50,6 +50,7 @@ public class CalendarController {
 	            event.put("start", schedule.getCal_start());
 	            event.put("end", schedule.getCal_end());
 	            event.put("description", schedule.getCal_content());
+	            event.put("category", schedule.getCal_category());
 	            // 2-3) 변환된 일정 데이터를 담은 Map을 events 리스트에 추가
 	            events.add(event);
 	        }

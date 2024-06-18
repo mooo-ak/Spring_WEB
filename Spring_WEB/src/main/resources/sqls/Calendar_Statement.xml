@@ -19,14 +19,14 @@
 	<!-- 일정 등록 -->
 	<insert id="insertSchedule">
 		INSERT INTO CALENDAR (CAL_NO, CAL_CATEGORY, CAL_TITLE, CAL_CONTENT, CAL_WRITER, CAL_START, CAL_END, CAL_DELFLAG)
-		SELECT NVL(MAX(CAL_NO) + 1, 0) AS CAL_NO, #{cal_category}, #{cal_title}, #{cal_content}, #{cal_writer}, #{cal_start}, #{cal_end}, 'N'
+		SELECT NVL(MAX(CAL_NO) + 1, 0) AS CAL_NO, #{cal_category}, #{cal_title}, #{cal_content}, #{cal_writer}, TO_DATE(#{cal_start}, 'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{cal_end}, 'YYYY-MM-DD HH24:MI:SS'), 'N'
 		FROM CALENDAR
 	</insert>
 	
 	<!-- 일정 수정 -->
 	<update id="updateSchedule">
 		UPDATE CALENDAR 
-		SET CAL_CATEGORY=#{cal_category}, CAL_TITLE = #{cal_title}, CAL_CONTENT = #{cal_content}, CAL_START=#{cal_start}, CAL_END=#{cal_end}, CAL_MODIFY=CURRENT_DATE
+		SET CAL_CATEGORY=#{cal_category}, CAL_TITLE = #{cal_title}, CAL_CONTENT = #{cal_content}, CAL_START=TO_DATE(#{cal_start}, 'YYYY-MM-DD HH24:MI:SS'), CAL_END=TO_DATE(#{cal_end}, 'YYYY-MM-DD HH24:MI:SS'), CAL_MODIFY=CURRENT_DATE
 		WHERE CAL_NO = #{cal_no}
 	</update>
 	

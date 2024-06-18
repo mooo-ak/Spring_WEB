@@ -10,6 +10,7 @@
 <!-- CSS 파일들 -->
 <link rel="stylesheet" href="./css/homepage.css">
 <link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/calendar.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 <!-- Bootstrap CSS -->
@@ -27,23 +28,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- jQuery DateTimePicker JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
-<style type="text/css">
-.fc-scrollgrid-sync-table tr td:first-child .fc-daygrid-day-number{
-   color:red;
-   }
-.fc-scrollgrid-sync-table tr td:last-child .fc-daygrid-day-number{
-   color:blue;
-   }
-</style>
 </head>
-<body>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 	<%@include file="/WEB-INF/views/menu/header.jsp"%>
 	
 	<main class="container">
 	
-	<div id='calendar' style="margin-top: 100px;"></div>
+	<div id='calendar' style="margin-top: 100px;"></div>	
 	
 	<!-------------------- ★★★ 일정 등록 Modal ★★★ -------------------->
 	<!-- Modal : tabindex="-1" 모달 창이 열리면 자동으로 포커스를 가져오기 위해 사용-->
@@ -58,7 +50,7 @@
 			<h4 class="modal-title">일정 등록</h4>
 		</div>
 		<!-- Modal content body-->
-		<div class="modal-body">
+		<form id="form" class="modal-body">
 			<label for="taskId" class="col-form-label">카테고리</label> 
 			<!-- <input type="text" class="form-control" id="calendar_category" name="cal_category"> -->
 			<select id="calendar_category" name="cal_category" style="width: 100%; padding:8px;">
@@ -78,7 +70,7 @@
 			<input type="text" class="form-control datetimepicker" id="calendar_start" name="cal_start">
 			<label for="taskId" class="col-form-label">종료 날짜</label> 
 			<input type="text" class="form-control datetimepicker" id="calendar_end" name="cal_end">
-		</div>
+		</form>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-warning" id="addCalendar">추가</button>
 			<button type="button" class="btn btn-secondary"  id="ModalClose" data-dismiss="modal">취소</button>
@@ -137,5 +129,4 @@
 integrity="sha256-hk2Q9BXDSq54aGHbj6/T9up41uNJ5tLQw49s0HqWfPw=" crossorigin="anonymous"></script>
 <!-- 캘린더 상세 구현을 위한 js 연결 -->
 <script src="./js/calendar/calendar_ver02.js"></script>
-<script src="./js/calendar/datepicker.js"></script>
 </html>

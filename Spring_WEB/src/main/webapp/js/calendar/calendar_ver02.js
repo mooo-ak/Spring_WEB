@@ -43,7 +43,19 @@ var calendarOption = {
     },
     
     eventDidMount: function(info) { // 이벤트가 캘린더에 렌더링된 후에 호출되는 콜백 함수
-        console.log('이벤트의 세부 정보를 확인:', info.event);           
+        // console.log('이벤트의 세부 정보를 확인:', info.event);
+		// var category = info.event.extendedProps.category;
+		// console.log("category: ", category); 
+            
+            var categoryClasses = {
+                '공지사항': 'category-notice',
+                '개인일정': 'category-personal',
+                '연차/휴가': 'category-vacation',
+                '외근/출장': 'category-business'
+            };
+            var categoryClass = categoryClasses[info.event.extendedProps.category];
+
+            info.el.classList.add(categoryClass);
     },
 
 }
@@ -63,13 +75,24 @@ calendar.on('eventClick', updateSchedule);
 
 // ------------------------------------------------------ [ 캘린더 핸들링 ]
 
+/* datetimepicker 설정 및 적용 */
+var datetimeOption = {
+	 format: 'Y-m-d H:i', // 날짜 및 시간 형식
+	 allowTimes: ['09:00','09:30', '10:00','10:30', '11:00','11:30','12:00','12:30',
+		 '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30',
+		 '18:00','18:30','19:00','19:30','20:00','20:30','21:00']
+	 
+};
+
+$.datetimepicker.setLocale('kr'); // 언어 설정 
+
+$('.datetimepicker').datetimepicker(datetimeOption); // datetimepicker 로드
+
 /* 일정등록 modal */
 function insertModal(){
 	$('#calendarModal').modal('show');
 	insertSchedule();
 }
-
-
 
 /* 일정변경 modal */
 function updateModal(){	
@@ -85,8 +108,14 @@ function updateModal(){
 	})
 	// 2. 시작일, 종료일 속성 변경	
 	updateDates.forEach(function(updateDate){
-		updateDate.type = 'date';
+		updateDate.type = 'text';
+		updateDate.classList.add('updateTag');		
+		updateDate.classList.add('form-control');		
+		updateDate.classList.add('datetimepicker');		
 	})
+	
+	$('.datetimepicker').datetimepicker(datetimeOption);
+	
 	// 3. 카테고리 속성 변경
     var selectElement = document.createElement('select');
     selectElement.id = 'calendar_category_detail';
@@ -110,8 +139,9 @@ function updateModal(){
 
 
 /* 일정 등록 */
-function insertSchedule(){
-	$('#addCalendar').on('click', function(){
+//function insertSchedule(){
+$('#addCalendar').on('click', function insertSchedule(){
+
 	const formData = {
         cal_category: $('#calendar_category').val(),
         cal_title: $('#calendar_title').val(),
@@ -135,9 +165,14 @@ function insertSchedule(){
                     title: formData.cal_title,
                     start: formData.cal_start,
                     end: formData.cal_end,
-                    description: formData.cal_content
+                    description: formData.cal_content,
+                    extendedProps: {
+                            category: formData.cal_category
+                        }
                 });
+                
                 $('#calendarModal').modal('hide');
+                $("#form")[0].reset();
             } else {
                 alert("일정 등록에 실패했습니다.");
                 $("#form")[0].reset(); // 폼 초기화
@@ -151,7 +186,7 @@ function insertSchedule(){
     });
  
 });
-}
+//}
 
 
 /* 일정 상세보기 */
@@ -189,15 +224,13 @@ function delSchedule(info){
               contentType: 'application/json',
               data: JSON.stringify({ cal_no: info.event.id }),
               success: function(response) {
-                  console.log("Success response: ", response);
                   if (response) {
                       info.event.remove();
                       $("#scheduleModal").modal("hide");
                   }
               },
               error: function(error) {
-                  console.log("Error response: ", error);
-                  alert('일정 삭제에 실패하였습니다.');
+                  alert('일정 삭제에 실패하였습니다.', error);
               }
           });
        }
