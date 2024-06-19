@@ -41,9 +41,22 @@ public class JUnitTest {
 //	@Test
 	public void getAllCalendar() {
 		// 일정 전체조회 테스트
-		List<CalendarDto> lists = cSerive.getAllSchedule();
+		String user_id = "HIHI";
+		List<CalendarDto> lists = cSerive.getAllSchedule(user_id);
+		System.out.println(lists);
 		assertNotNull(lists);
 		
+	}
+	
+//	@Test
+	public void detailCalendar() {
+		// 일정 상세조회 테스트		
+		CalendarDto cDto = new CalendarDto();
+		cDto.setCal_no("2");
+		cDto.setUser_id("HIHI");
+		CalendarDto result = cSerive.getDetailSchedule(cDto);
+		System.out.println(result);
+		assertNotNull(result);
 	}
 	
 //	@Test
@@ -51,11 +64,12 @@ public class JUnitTest {
 		// 일정 등록 테스트
 		CalendarDto cDto = new CalendarDto();
 		cDto.setCal_category("공지사항");
-		cDto.setCal_title("공지사항 제목");
-		cDto.setCal_content("공지사항을 말씀드립니다");
-		cDto.setCal_writer("하이");
-		cDto.setCal_start("2024-06-14");
-		cDto.setCal_end("2024-06-15");
+		cDto.setCal_title("아이디연동");
+		cDto.setCal_content("아이디 연동을 통한 테스트");
+		cDto.setUsername("하이");
+		cDto.setCal_start("2024-06-01");
+		cDto.setCal_end("2024-06-01");
+		cDto.setUser_id("HIHI");
 		
 		int result = cSerive.insertSchedule(cDto);
 		assertEquals(1, result);
@@ -69,7 +83,7 @@ public class JUnitTest {
 		cDto.setCal_category("개인일정");
 		cDto.setCal_title("공지사항 제목");
 		cDto.setCal_content("공지사항을 말씀드립니다");
-		cDto.setCal_writer("하이");
+		cDto.setUsername("하이");
 		cDto.setCal_start("2024-06-14");
 		cDto.setCal_end("2024-06-15");
 		

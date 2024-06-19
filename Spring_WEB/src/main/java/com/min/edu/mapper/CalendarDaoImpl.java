@@ -20,9 +20,9 @@ public class CalendarDaoImpl implements ICalendarDao {
 	private final String NS = "com.min.edu.mapper.CalendarDaoImpl.";
 
 	@Override
-	public List<CalendarDto> getAllSchedule() {
+	public List<CalendarDto> getAllSchedule(String user_id) {
 		log.info("CalendarDaoImpl getAllCalendar : 일정 전체조회 DAO ACCESS");
-		return session.selectList(NS+"getAllSchedule");
+		return session.selectList(NS+"getAllSchedule", user_id);
 	}
 	
 	@Override
@@ -32,9 +32,9 @@ public class CalendarDaoImpl implements ICalendarDao {
 	}
 	
 	@Override
-	public CalendarDto getDetailSchedule(String cal_no) {
+	public CalendarDto getDetailSchedule(CalendarDto cDto) {
 		log.info("CalendarDaoImpl insertSchedule : 일정 상세조회 DAO ACCESS");
-		return session.selectOne(NS+"getDetailSchedule", cal_no);
+		return session.selectOne(NS+"getDetailSchedule", cDto);
 	}
 	
 	@Override

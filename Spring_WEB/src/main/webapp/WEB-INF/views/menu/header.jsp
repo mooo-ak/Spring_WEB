@@ -30,6 +30,15 @@
         <c:choose>
 	        <c:when test="${sessionScope.loginInfo != null}">
 	            <li><a href="./logout.do">로그아웃</a></li>
+	            <li><input type="hidden" id="userID" value="${loginInfo.user_id}"></li>
+	            <li><input type="hidden" value="${loginInfo.password}"></li>
+	            <li><input type="hidden" value="${loginInfo.username}"></li>
+	            <li><input type="hidden" value="${loginInfo.nickname}"></li>
+	            <li><input type="hidden" value="${loginInfo.useremail}"></li>
+	            <li><input type="hidden" value="${loginInfo.userphone}"></li>
+	            <li><input type="hidden" value="${loginInfo.signup_date}"></li>
+	            <li><input type="hidden" value="${loginInfo.auth}"></li>
+	            <li><input type="hidden" value="${loginInfo.dropout}"></li>
 	        </c:when>
 	        <c:otherwise>
 	            <li><a href="./loginForm.do">로그인</a></li>

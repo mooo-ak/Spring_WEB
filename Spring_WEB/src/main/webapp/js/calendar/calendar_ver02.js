@@ -1,6 +1,6 @@
 
 // ------------------------------------------------------ [ 전역변수 ]
-const calendarEl = document.getElementById('calendar');
+const calendarUser = document.getElementById('calendar_user');
 
 var modifyBtn = document.getElementById('modifyCalendar');
 var btnGroup1 = document.querySelector('.btn-group1');
@@ -11,16 +11,23 @@ var updateDates = document.querySelectorAll('.updateDate');
 var category = document.getElementById('calendar_category_detail');
 var updateBtn = document.getElementById('updateCalendar');
 
-
+//var userId = document.getElementById('userID');
 // ------------------------------------------------------ [ header 옵션 ]
-var headerOption = {
+var headerUserOption = {
 	left: 'today prev,next',
 	center: 'title',
 	right: 'dayGridMonth,timeGridWeek,timeGridDay'
 } 
 
+var headerEveryOption = {
+	left: 'prev,next',
+	center: 'title',
+	right: 'dayGridMonth today'
+}
+
 // ------------------------------------------------------ [ 캘린더 설정 ]
-var calendarOption = {
+var calendarUserOption = {
+	
 	initialView: 'dayGridMonth', // 초기 로드될 때 기본 화면 옵션 : momth
 	height: 650, // 캘린더 높이 : [정수] px 높이로 자동설정. 높이에 맞지 않을 시 스크롤바 자동 생성
 	// locale: 'ko', // 캘린더 언어
@@ -28,21 +35,32 @@ var calendarOption = {
 	navLinks: true, // 날짜 클릭 → today 일정으로 이동
 	dayMaxEvents: true, // 이벤트가 너무 많을때 + more
 	eventLimit: true,
-	selectable : true,
 	droppable : true,
 	editable : true,
-	headerToolbar: headerOption, // 캘린더 Header 설정 
+	headerToolbar: headerUserOption, // 캘린더 Header 설정 
 	
 	// 캘린더 데이터(resource) 불러오기 (JSON)
     events: {
         url: './getAllSchedule.do',
         method: 'GET',
+        extraParams: {
+        	user_id: $('#userID').val()  
+    	},
         failure: function() {
             alert('일정 데이터를 불러오는 데 실패했습니다.');
         }
     },
-    
-    eventDidMount: function(info) { // 이벤트가 캘린더에 렌더링된 후에 호출되는 콜백 함수
+    // 구글캘린더 연동
+    eventSources: [
+	{
+		googleCalendarApiKey: 'AIzaSyBFcVftEBRQb1sa_bD23knaAHmVoyTE5PE',
+        googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+        className: 'googleEvent',			
+		backgroundColor: '#f4511e'
+    }
+	],
+    // 이벤트가 캘린더에 렌더링된 후에 호출되는 콜백 함수 
+    eventDidMount: function(info) { 
         // console.log('이벤트의 세부 정보를 확인:', info.event);
 		// var category = info.event.extendedProps.category;
 		// console.log("category: ", category); 
@@ -60,24 +78,25 @@ var calendarOption = {
 
 }
 
+
 // ------------------------------------------------------ [ 캘린더 랜더링 ]
 	
-const calendar = new FullCalendar.Calendar(calendarEl, calendarOption);
+const calendarLogin = new FullCalendar.Calendar(calendarUser, calendarUserOption);
 
-calendar.render();
+calendarLogin.render();
 
-calendar.on('eventClick', delSchedule);
-calendar.on('eventClick', updateModal);
-calendar.on('dateClick', insertModal);
-calendar.on('eventClick', datailSchedule);
-calendar.on('eventClick', updateSchedule);
+calendarLogin.on('eventClick', delSchedule);
+calendarLogin.on('eventClick', updateModal);
+calendarLogin.on('dateClick', insertModal);
+calendarLogin.on('eventClick', datailSchedule);
+calendarLogin.on('eventClick', updateSchedule);
 
 
 // ------------------------------------------------------ [ 캘린더 핸들링 ]
 
 /* datetimepicker 설정 및 적용 */
 var datetimeOption = {
-	 format: 'Y-m-d H:i', // 날짜 및 시간 형식
+	 format: 'Y-m-d H:i:s', // 날짜 및 시간 형식
 	 allowTimes: ['09:00','09:30', '10:00','10:30', '11:00','11:30','12:00','12:30',
 		 '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30',
 		 '18:00','18:30','19:00','19:30','20:00','20:30','21:00']
@@ -146,9 +165,11 @@ $('#addCalendar').on('click', function insertSchedule(){
         cal_category: $('#calendar_category').val(),
         cal_title: $('#calendar_title').val(),
         cal_content: $('#calendar_content').val(),
-        cal_writer: $('#calendar_writer').val(),
+        username: $('#calendar_writer').val(),
         cal_start: $('#calendar_start').val(),
-        cal_end: $('#calendar_end').val()
+        cal_end: $('#calendar_end').val(),
+        user_id: $('#userID').val()
+        
     };
     console.log('입력된 데이터 확인: ' + formData);
     
@@ -160,14 +181,15 @@ $('#addCalendar').on('click', function insertSchedule(){
         success: function(response) {
             console.log("서버 응답:", response);
             if (response) {
-                calendar.addEvent({
+                calendarLogin.addEvent({
                     id: formData.cal_no,
                     title: formData.cal_title,
                     start: formData.cal_start,
                     end: formData.cal_end,
                     description: formData.cal_content,
                     extendedProps: {
-                            category: formData.cal_category
+                            category: formData.cal_category,
+                            writer: formData.username
                         }
                 });
                 
@@ -192,15 +214,19 @@ $('#addCalendar').on('click', function insertSchedule(){
 /* 일정 상세보기 */
 function datailSchedule(info){
 	var cal_no = info.event.id;
+	var user_id = $('#userID').val();
 		 $.ajax ({
 			url: './getDetailSchedule.do',
 			type: 'GET',
-			data: { cal_no: cal_no },
+			data: { 
+				cal_no: cal_no, 
+				user_id: user_id
+				},
 			success: function(scheduleInfo) {
 			 $('#calendar_category_detail').val(scheduleInfo.cal_category);
              $('#calendar_title_detail').val(scheduleInfo.cal_title);
              $('#calendar_content_detail').val(scheduleInfo.cal_content);
-             $('#calendar_writer_detail').val(scheduleInfo.cal_writer);
+             $('#calendar_writer_detail').val(scheduleInfo.username);
 	 	     $('#calendar_start_detail').val(scheduleInfo.cal_start);
 		     $('#calendar_end_detail').val(scheduleInfo.cal_end);
 			  

@@ -18,9 +18,9 @@ public class CalendarServiceImpl implements ICalendarService {
 	private ICalendarDao cDao;
 
 	@Override
-	public List<CalendarDto> getAllSchedule() {
-		log.info("CalendarServiceImpl getAllCalendar : 일정 전체조회");
-		return cDao.getAllSchedule();
+	public List<CalendarDto> getAllSchedule(String user_id) {
+		log.info("CalendarServiceImpl getAllCalendar : {}님 일정 전체조회", user_id);
+		return cDao.getAllSchedule(user_id);
 	}
 	
 	@Override
@@ -30,9 +30,9 @@ public class CalendarServiceImpl implements ICalendarService {
 	}
 	
 	@Override
-	public CalendarDto getDetailSchedule(String cal_no) {
-		log.info("CalendarServiceImpl getDetailSchedule : {}번 일정 조회", cal_no);
-		return cDao.getDetailSchedule(cal_no);
+	public CalendarDto getDetailSchedule(CalendarDto cDto) {
+		log.info("CalendarServiceImpl getDetailSchedule : {}번 일정 조회", cDto);
+		return cDao.getDetailSchedule(cDto);
 	}
 	
 	@Override

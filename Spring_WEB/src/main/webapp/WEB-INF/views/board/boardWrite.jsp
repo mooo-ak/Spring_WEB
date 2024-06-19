@@ -70,7 +70,7 @@
 	<%@include file="/WEB-INF/views/menu/footer.jsp"%>
 
 </body>
-<script type="text/javascript" src="./js/boardWrite.js"></script>
+<script type="text/javascript" src="./js/board/boardWrite.js"></script>
 
 
 </html>

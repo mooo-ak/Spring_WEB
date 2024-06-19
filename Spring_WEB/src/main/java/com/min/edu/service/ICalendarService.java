@@ -6,11 +6,11 @@ import com.min.edu.dto.CalendarDto;
 
 public interface ICalendarService {
 
-	public List<CalendarDto> getAllSchedule(); 
+	public List<CalendarDto> getAllSchedule(String user_id); 
 	
 	public int insertSchedule(CalendarDto cDto);
 	
-	public CalendarDto getDetailSchedule(String cal_no);
+	public CalendarDto getDetailSchedule(CalendarDto cDto);
 	
 	public int updateSchedule(CalendarDto cDto);
 	

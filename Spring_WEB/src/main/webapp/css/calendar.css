@@ -1,12 +1,23 @@
+
+/* 공휴일 이벤트 클릭 이동 방지 */
+.googleEvent{
+   pointer-events: none;
+}
+
+/* .fc-h-event .fc-event-main-frame{ */
+/*   background-color: #f4511e; */
+/* } */
+
+
 /* 토요일 날짜 색상 */   
 .fc-scrollgrid-sync-table tr td:last-child .fc-daygrid-day-number{
    color:blue;
-   }
+}
 
 /* 일요일 날짜 색상 */
 .fc-scrollgrid-sync-table tr td:first-child .fc-daygrid-day-number{
    color:red;
-   }
+}
 
 /* 공지사항 */  
 .category-notice {

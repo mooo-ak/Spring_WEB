@@ -21,12 +21,13 @@ public class CalendarDto {
 	private String cal_category;
 	private String cal_title;
 	private String cal_content;
-	private String cal_writer;
+	private String username; // 로그인한 유저 이름
 	private String cal_start;
 	private String cal_end;
 	private String cal_regdate;
 	private String cal_modify;
 	private String cal_delflag;
 	private String cal_bigo;
-
+	private String user_id; // 로그인한 유저 id
+	
 }

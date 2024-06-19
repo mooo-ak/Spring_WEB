@@ -34,10 +34,10 @@ public class CalendarController {
 	}
 	
 	 @GetMapping("/getAllSchedule.do")
-	    public ResponseEntity<List<Map<String, Object>>> getAllSchedule() {
+	    public ResponseEntity<List<Map<String, Object>>> getAllSchedule(String user_id) {
 		 	log.info("전체 조회된 일정 DATA → JSON 데이터로 변환_version02");
 	        // 1-1) 서비스에서 모든 일정 데이터를 조회하여 List<CalendarDto> 형식으로 반환 
-	        List<CalendarDto> schedules = cSerive.getAllSchedule();
+	        List<CalendarDto> schedules = cSerive.getAllSchedule(user_id);
 	        // 1-2) JSON 데이터를 담기 위한 리스트 생성
 	        List<Map<String, Object>> events = new ArrayList<>();
 
@@ -45,12 +45,13 @@ public class CalendarController {
 	        	// 2-1) 각 일정 데이터를 JSON 형식의 Map으로 변환
 	            Map<String, Object> event = new HashMap<>();
 	            // 2-2) 일정 데이터의 각 필드를 Map에 추가
+	            event.put("category", schedule.getCal_category());
 	            event.put("id", schedule.getCal_no());
 	            event.put("title", schedule.getCal_title());
+	            event.put("username", schedule.getUsername());
+	            event.put("description", schedule.getCal_content());
 	            event.put("start", schedule.getCal_start());
 	            event.put("end", schedule.getCal_end());
-	            event.put("description", schedule.getCal_content());
-	            event.put("category", schedule.getCal_category());
 	            // 2-3) 변환된 일정 데이터를 담은 Map을 events 리스트에 추가
 	            events.add(event);
 	        }
@@ -69,9 +70,11 @@ public class CalendarController {
 	 
 	 @GetMapping(value = "/getDetailSchedule.do")
 	 @ResponseBody 
-	 public CalendarDto detailSchedule(String cal_no) {
+	 public CalendarDto getDetailSchedule(CalendarDto cDto) {
 	     log.info("CalendarController detailSchedule : 일정 상세조회");
-	     CalendarDto scheduleInfo = cSerive.getDetailSchedule(cal_no);
+	     cDto.getCal_no();
+	     cDto.getUser_id();
+	     CalendarDto scheduleInfo = cSerive.getDetailSchedule(cDto);
 	     return scheduleInfo;
 	 }
 	 
