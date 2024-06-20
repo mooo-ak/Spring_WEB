@@ -73,5 +73,10 @@ public class BoardServiceImpl implements IBoardService {
 		return bDao.getFile(b_seq);
 	}
 	
+	@Override
+	public int updateView(String b_seq) {
+		log.info("BoardServiceImpl updateView 조회수 구현");
+		return bDao.updateView(b_seq);
+	}
 
 }

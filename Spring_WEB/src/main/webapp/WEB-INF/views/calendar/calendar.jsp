@@ -126,6 +126,56 @@
 	    	<div id='calendar_every' style="margin-top: 100px;"></div>
 	    </c:otherwise>
     </c:choose>	
+    
+    <!-- ----------------------------------------------------------------------------------------------------------------------- -->
+    <br><br><br>
+    
+    <div>
+	  <h2>캘린더</h2>
+	  <h4>What we have created</h4>
+	  
+	  <div class="row">  
+	  <div class="col-sm-6">
+	  <div class="description">
+		  <div class="desHeader">
+		  	<h2 class="desTitle text-center">Implement</h2>
+		  </div>
+		  <div class="desBody">
+		  	<p class="desContent"> ■ 조건부 렌더링 (로그인 여부에 따른 다른 캘린더 표시) </p>
+		  	<p class="desContent"> ■ FullCalendar 사용하여 캘린더 초기화 및 렌더링 </p>
+		  	<p class="desContent"> ■ datetimepicker 사용하여 날짜 및 시간 선택 설정 </p>
+		  	<p class="desContent"> ■ 일정 카테고리에 따른 다른 색상 이벤트 표시 </p>
+		  	<p class="desContent"> ■ 일정 등록 모달 창 </p>
+		  	<p class="desContent"> ■ 일정 조회 모달 창 </p>
+		  	<p class="desContent"> ■ 비동기 일정 등록 기능 (AJAX POST 요청) </p>
+		  	<p class="desContent"> ■ 비동기 일정 상세 조회 기능 (AJAX GET 요청) </p>
+		  	<p class="desContent"> ■ 비동기 일정 삭제 기능 (AJAX DELETE 요청) </p>
+		  	<p class="desContent"> ■ 비동기 일정 삭제 기능 (AJAX DELETE 요청) </p>
+		  </div>
+	  </div>
+	  </div>
+	  
+	  <div class="col-sm-6">
+	  <div class="description">
+		  <div class="desHeader">
+		  	<h2 class="desTitle text-center">API</h2>
+		  </div>
+		  <div class="desBody">
+		  	<p class="desContent"> ■ Full Calendar </p>
+		  	<p class="desContent"> ■ Google calendar </p>
+		  	<p class="desContent"> ■ DateTimePicker </p>
+		  </div>
+		  <div class="desHeader">
+		  	<h2 class="desTitle text-center">Impression</h2>
+		  </div>
+		  <div class="desBody">
+		  	<p class="desContent boldFont"> ■ 조건부 렌더링 (로그인 여부에 따른 다른 캘린더 표시) </p>
+		  </div>
+	  </div>
+	  </div>
+	  
+	  </div> <!-- class="row" END -->
+	 </div>
 
 	</main>
 	

@@ -2,6 +2,7 @@ package com.min.edu.service;
 
 import java.util.List;
 
+import com.min.edu.comm.Pagenation;
 import com.min.edu.dto.BoardDto;
 import com.min.edu.dto.FileDto;
 
@@ -24,6 +25,8 @@ public interface IBoardService {
 		// 게시글 + 첨부파일 트랜젝션
 		public int insertTransaction(BoardDto bDto, FileDto fDto);
 		// 첨부파일 불러오기
-		public FileDto getFile(String b_seq);		
+		public FileDto getFile(String b_seq);
+		// 조회수 증가
+		public int updateView(String b_seq);
 
 }

@@ -48,8 +48,8 @@
   /* 게시판 sectoin 넓이 */
   .boardlst {
     margin: 0px auto;
-    padding-top: 180px;
-    width : 80%;
+    padding-top: 150px;
+	width : 90%;
     max-width : 100%;
   }
   .bg-grey {
@@ -204,3 +204,38 @@
       font-size: 150px;
     }
   }
+.boldFont {
+	font-weight: bold;
+}  
+  
+ /* Description */ 
+ .description {	
+ 	border: 1px solid #ddd;
+ 	border-radius: 5px;
+ 	height: 500px;
+ }
+ 
+ .desHeader {
+ 	background-color: #f4511e;
+ 	color: #fff;
+ 	border-top-left-radius: 5px;
+ 	border-top-right-radius: 5px;
+ }
+ 
+ .desTitle {
+ 	margin: 0px;
+ 	padding: 20px 0px;
+ }
+ 
+ .desBody {
+ 	padding: 20px 20px 10px 20px;
+ }
+ 
+ .desContent {
+ 	color: inherit;
+ 	font-size: 14px;
+ }
+ 
+ .des_left {
+ 	padding-left: 0px;
+ }

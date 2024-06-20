@@ -13,6 +13,7 @@
 		<mapper resource="sqls/User_Statement.xml"/>
 		<mapper resource="sqls/Calendar_Statement.xml"/>
 		<mapper resource="sqls/Board_Statement.xml"/>
+		<mapper resource="sqls/Page_Statement.xml"/>
 	</mappers>
 
 </configuration>

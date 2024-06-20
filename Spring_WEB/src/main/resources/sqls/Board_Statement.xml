@@ -5,14 +5,14 @@
 	
 	<!-- 게시글 조회 -->
 	<select id="boardList" resultType="BoardDto">
-		SELECT B_SEQ, B_TITLE, B_WRITER, B_CREATEAT, B_DELFLAG
-		FROM BOARDTEST 
+		SELECT B_SEQ, B_NO, B_TITLE, B_CREATEAT, B_WRITER, B_DELFLAG, B_VIEWCOUNT  
+		FROM BOARDTEST b 
 		ORDER BY B_SEQ DESC
 	</select>
 
 	<!-- 게시글 상세조회 -->
 	<select id="detailBoard" resultType="BoardDto">
-		SELECT B_SEQ, B_WRITER,
+		SELECT B_SEQ, B_WRITER, B_WRITERID, B_DELFLAG,
 		B_TITLE, B_CONTENT, TO_CHAR(B_CREATEAT,'YYYY-MM-DD') AS B_CREATEAT
 		FROM BOARDTEST 
 		WHERE B_SEQ = #{b_seq}
@@ -40,6 +40,14 @@
 		WHERE B_SEQ = #{b_seq}
 	</update>
 	
+	<!-- 조회수 증가 -->
+	<update id="updateView">
+		UPDATE BOARDTEST
+		SET B_VIEWCOUNT = B_VIEWCOUNT +1
+		WHERE B_SEQ = #{b_seq}
+	</update>
+	
+	
 	<!-- 첨부파일 등록 트랜젝션 : b_seq 부터 찾은 다음 파일 등록-->
 	<insert id="insertFile">
 		<selectKey keyProperty="b_seq" order="BEFORE" resultType="String">
@@ -56,6 +64,7 @@
 		SELECT B_SEQ, F_SEQ, ORIGIN_FILENAME, STORED_FILENAME, FILE_SIZE, F_REGDATE, F_DELFLAG, F_DATA
 			FROM FILEBOARD f 
 			WHERE B_SEQ = #{b_seq}
-	</select>
+	</select>	
+	
 
 </mapper>

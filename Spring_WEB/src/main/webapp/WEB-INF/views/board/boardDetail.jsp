@@ -15,11 +15,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 	<%@include file="/WEB-INF/views/menu/header.jsp"%>
 
 	<main>
-		
+<p>b_writerId: ${bDto.b_writerId}</p>
+<p>user_id: ${loginInfo.user_id}</p>
+		<div><input type="hidden" value="${bDto.b_writerId }"></div>
 		<div class="container-fluid boardlst">
 			<table class="table table-bordered">
 				<tr>
@@ -46,15 +47,21 @@
 			</table>
 		</div>
 		
-		<div style="text-align: center;">
-			<button type="button" class="modifyBtn btn btn-primary">수정하기</button>
-			<button type="button" class="delBtn btn btn-warning">삭제하기</button>
-			<button type="button" class="reBtn btn btn-warning">복구하기</button>			
-		</div>
-		
-		<div style="text-align: center;">
-			<button type="button" class="btn" onclick="history.back(-1)">뒤로가기</button>
-		</div>
+		<c:choose>
+		<c:when test="${empty loginInfo.user_id or bDto.b_writerId != loginInfo.user_id}">
+			<div style="text-align: center;">
+				
+				<button type="button" class="btn" onclick="history.back(-1)">뒤로가기</button>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div style="text-align: center;">
+				<button type="button" class="modifyBtn btn btn-primary">수정하기</button>
+				<button type="button" class="delBtn btn btn-warning">삭제하기</button>
+				<!-- <button type="button" class="reBtn btn btn-warning">복구하기</button> -->						
+			</div>
+		</c:otherwise>
+		</c:choose>
 		
 	</main>
 

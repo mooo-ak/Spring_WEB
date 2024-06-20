@@ -36,6 +36,10 @@ public class BoardDto implements Serializable {
 	private int b_ref;
 	private int b_step;
 	private String b_delflag;
+	// 페이징 적용 후 게시글 넘버링을 위한 요소
+	private String b_no;
+	// 조회수 구현
+	private String b_viewcount;
 
 	// ====================================================
 	

@@ -1,6 +1,5 @@
 package com.min.edu.ctrl;
 
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
@@ -21,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.min.edu.dto.BoardDto;
 import com.min.edu.dto.FileDto;
+import com.min.edu.dto.UserDto;
 import com.min.edu.service.IBoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -60,13 +60,19 @@ public class BoardController {
 	
 	/* ---------- 게시글 상세 화면 (게시글 + 첨부파일) ---------- */
 	@GetMapping (value = "/getDetailBoard.do")
-	public String detailBoard(String b_seq, Model model) {
+	public String detailBoard(String b_seq, Model model, HttpSession session) {
 		log.info("BoardController getDetailBoard.do : {}번 게시글 상세화면으로 이동", b_seq);
 		
+		// 조회수 증가
+	    bService.updateView(b_seq);
 		BoardDto bDto = bService.detailBoard(b_seq);
 		FileDto fDto = bService.getFile(b_seq);
 		model.addAttribute("bDto", bDto);
 		model.addAttribute("fDto", fDto);
+		
+		// 로그인 정보 가져오기
+	    UserDto loginInfo = (UserDto) session.getAttribute("loginInfo");
+	    model.addAttribute("loginInfo", loginInfo);
 		
 		return "/board/boardDetail";
 	}

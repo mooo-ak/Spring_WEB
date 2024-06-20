@@ -1,6 +1,7 @@
 package com.min.edu.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,4 +65,10 @@ public class BoardDaoImpl implements IBoardDao {
 		return session.selectOne(NS+"getFile", b_seq);
 		}
 		
+		@Override
+		public int updateView(String b_seq) {
+		log.info("BoardDaoImpl updateView : 조회수 증가 Dao Access");
+		return session.update(NS+"updateView", b_seq);
+		}
+
 }

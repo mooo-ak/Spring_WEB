@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.min.edu.dto.BoardDto;
 import com.min.edu.dto.CalendarDto;
 import com.min.edu.dto.UserDto;
+import com.min.edu.service.IBoardService;
 import com.min.edu.service.ICalendarService;
 import com.min.edu.service.IUserService;
 
@@ -26,6 +28,9 @@ public class JUnitTest {
 
 	@Autowired
 	private ICalendarService cSerive;
+	
+	@Autowired
+	private IBoardService bService;
 	
 	
 //	@Test
@@ -96,6 +101,15 @@ public class JUnitTest {
 		// 일정 삭제 테스트
 		int result = cSerive.delSchedule("1");
 		assertEquals(1, result);
+	}
+	
+	@Test
+	public void detailboard() {
+		// 게시판 상세조회 테스트
+		String b_seq = "24";
+		BoardDto bDto = bService.detailBoard(b_seq);
+		System.out.println(bDto);
+		assertNotNull(bDto);
 	}
 
 }

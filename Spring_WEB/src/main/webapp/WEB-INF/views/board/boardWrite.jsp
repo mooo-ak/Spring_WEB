@@ -39,7 +39,15 @@
 			<table class="table table-bordered">
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" id="board_writer" name="b_writer"></td>
+					<c:choose>
+						<c:when test="${sessionScope.loginInfo != null }">						
+						<td><input type="text" id="board_writer" name="b_writer" value="${loginInfo.username}" readonly="readonly"></td>
+						<td><input type="hidden" id="board_writerId" name="b_writerId" value="${loginInfo.user_id}"></td>
+						</c:when>
+						<c:otherwise>
+						<td><input type="text" id="board_writer" name="b_writer"></td>	
+						</c:otherwise>
+					</c:choose>
 				</tr>
 				<tr>
 					<th>제목</th>
