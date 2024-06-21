@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="js/homepage.js"></script>
 </head>
+<body>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 	<%@include file="/WEB-INF/views/menu/header.jsp"%>
@@ -265,5 +265,5 @@
 	<%@include file="/WEB-INF/views/menu/footer.jsp" %>
 
 </body>
-
+<script src="js/home.js"></script>
 </html>

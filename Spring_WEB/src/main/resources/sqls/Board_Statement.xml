@@ -20,8 +20,8 @@
 
 	<!-- 게시글 작성 -->
 	<insert id="writeBoard">
-		INSERT INTO BOARDTEST (B_SEQ, B_TITLE, B_CONTENT, B_WRITER)
-		VALUES (BOARDTEST_BO_SEQ.NEXTVAL, #{b_title}, #{b_content}, #{b_writer})
+		INSERT INTO BOARDTEST (B_SEQ, B_TITLE, B_CONTENT, B_WRITER, B_NO)
+		VALUES (BOARDTEST_BO_SEQ.NEXTVAL, #{b_title}, #{b_content}, #{b_writer}, (SELECT NVL(MAX(B_NO) + 1, 0) AS B_NO FROM BOARDTEST))
 	</insert>
 
 	<!-- 게시글 수정 -->

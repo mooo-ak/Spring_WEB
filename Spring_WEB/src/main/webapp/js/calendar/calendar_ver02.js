@@ -85,11 +85,11 @@ const calendarLogin = new FullCalendar.Calendar(calendarUser, calendarUserOption
 
 calendarLogin.render();
 
+calendarLogin.on('eventClick', datailSchedule);
+calendarLogin.on('eventClick', updateSchedule);
 calendarLogin.on('eventClick', delSchedule);
 calendarLogin.on('eventClick', updateModal);
 calendarLogin.on('dateClick', insertModal);
-calendarLogin.on('eventClick', datailSchedule);
-calendarLogin.on('eventClick', updateSchedule);
 
 
 // ------------------------------------------------------ [ 캘린더 핸들링 ]
@@ -287,7 +287,7 @@ function updateSchedule(info){
             success: function(response) {
                 console.log("서버 응답:", response);
                 if (response) {
-                    var event = calendar.getEventById(formData.cal_no);
+                    var event = calendarLogin.getEventById(formData.cal_no);
                     event.setProp('title', formData.cal_title);
                     event.setStart(formData.cal_start);
                     event.setEnd(formData.cal_end);

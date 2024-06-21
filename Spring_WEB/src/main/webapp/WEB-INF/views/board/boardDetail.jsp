@@ -18,8 +18,7 @@
 	<%@include file="/WEB-INF/views/menu/header.jsp"%>
 
 	<main>
-<p>b_writerId: ${bDto.b_writerId}</p>
-<p>user_id: ${loginInfo.user_id}</p>
+
 		<div><input type="hidden" value="${bDto.b_writerId }"></div>
 		<div class="container-fluid boardlst">
 			<table class="table table-bordered">

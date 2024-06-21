@@ -64,7 +64,7 @@
     font-size: 200px;
   }
   .thumbnail {
-    padding: 0 0 15px 0;
+    padding: 20px;
     border: none;
     border-radius: 0;
   }
@@ -72,6 +72,9 @@
     width: 100%;
     height: 100%;
     margin-bottom: 10px;
+  }
+  #portfolio {
+  	font-family: Noto Sans KR, sans-serif;
   }
   .carousel-control.right, .carousel-control.left {
     background-image: none;
@@ -207,6 +210,8 @@
 .boldFont {
 	font-weight: bold;
 }  
+/* 포폴 area */
+
   
  /* Description */ 
  .description {	
@@ -238,4 +243,33 @@
  
  .des_left {
  	padding-left: 0px;
+ }
+ 
+ .emphasize {
+ 	color: #dc3545;
+ }
+ 
+ .project_description_main {
+ 	border-bottom: 1px solid #ccc;
+/*  	font-size: 1rem; */
+/*  	font-weight: 400; */
+ 	padding-bottom: 1rem;
+ 	margin-bottom: 1rem;
+ }
+ 
+ .description_subtitle {
+ 	display: inline-block;
+    vertical-align: top;
+    width: 10.4rem;
+    font-weight: 900;
+ }
+ .description_subbody{
+ 	display: inline-block;
+    vertical-align: bottom;
+/*     width: calc(100% - 8.4rem); */
+    font-weight: 400;
+ }
+ 
+ .form-control[readonly] {
+ 	background-color: #fff;
  }
