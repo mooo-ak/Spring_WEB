@@ -175,6 +175,28 @@
 		<version>1.5</version>
 	</dependency>
 	
+	<!-- 메일 전송을 위한 라이브러리 -->
+	<dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>mail</artifactId>
+	    <version>1.4.7</version>
+	</dependency>
+
+	<!--
+	<dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>mail</artifactId>
+	    <version>1.4.7</version>
+	</dependency>
+	
+	<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version> 
+    <scope>provided</scope> 
+	</dependency>
+	-->
+	
 	<!-- 실시간 알림을 위한 Spring-WebSocket -->
 	<dependency>
 		<groupId>org.springframework</groupId>

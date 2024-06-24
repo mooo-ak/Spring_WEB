@@ -1,5 +1,5 @@
 
-/* ê³µíœ´ì¼ ì´ë²¤íŠ¸ í´ë¦­ ì´ë™ ë°©ì§€ */
+/* °øÈŞÀÏ ÀÌº¥Æ® Å¬¸¯ ÀÌµ¿ ¹æÁö */
 .googleEvent{
    pointer-events: none;
 }
@@ -8,18 +8,21 @@
 /*   background-color: #f4511e; */
 /* } */
 
+.fc-h-event {
+	border-style: none;
+}
 
-/* í† ìš”ì¼ ë‚ ì§œ ìƒ‰ìƒ */   
+/* Åä¿äÀÏ ³¯Â¥ »ö»ó */   
 .fc-scrollgrid-sync-table tr td:last-child .fc-daygrid-day-number{
    color:blue;
 }
 
-/* ì¼ìš”ì¼ ë‚ ì§œ ìƒ‰ìƒ */
+/* ÀÏ¿äÀÏ ³¯Â¥ »ö»ó */
 .fc-scrollgrid-sync-table tr td:first-child .fc-daygrid-day-number{
    color:red;
 }
 
-/* ê³µì§€ì‚¬í•­ */  
+/* °øÁö»çÇ× */  
 .category-notice {
    --fc-event-border-color: blue;
    color: blue;
@@ -28,7 +31,7 @@
 	background-color: blue;
 }
 
-/* ê°œì¸ì¼ì • */
+/* °³ÀÎÀÏÁ¤ */
 .category-personal {
    --fc-event-border-color: green;
    color: green;
@@ -37,7 +40,7 @@
 	background-color: green;
 }
 
-/* ì—°ì°¨/íœ´ê°€ */
+/* ¿¬Â÷/ÈŞ°¡ */
 .category-vacation {
    --fc-event-border-color: red;
    color: red;
@@ -46,7 +49,7 @@
 	background-color: red;
 }
 
-/* ì™¸ê·¼/ì¶œì¥ */
+/* ¿Ü±Ù/ÃâÀå */
 .category-business {
    --fc-event-border-color: orange;
    color: orange;
@@ -59,3 +62,6 @@
 	margin-top: 100px;
 }
 
+.form-control[readonly] {
+ 	background-color: #fff;
+ }

@@ -14,6 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
 <style type="text/css">
 	input {
 			width: 100%; 
@@ -58,7 +59,7 @@
 				<tr>
 					<th>내용</th>
 					<td colspan="5" style="overflow-y:scroll;">
-						<textarea id="board_content" name="b_content"></textarea>
+						<textarea id="board_content" class="editor" name="b_content"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +79,7 @@
 	<%@include file="/WEB-INF/views/menu/footer.jsp"%>
 
 </body>
-<script type="text/javascript" src="./js/board/boardWrite.js"></script>
-
-
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<!-- <script type="text/javascript" src="./js/board/boardWrite.js"></script> -->
+<script type="text/javascript" src="./js/board/boardWrite_ckeditor.js"></script>
 </html>

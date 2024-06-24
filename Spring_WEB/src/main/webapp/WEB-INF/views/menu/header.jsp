@@ -21,16 +21,16 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="./getCalendar.do">캘린더</a></li>
-        <li><a href="./paging.do">게시판</a></li>
+        <li><a href="#skill">SKILL</a></li>
+        <li><a href="#project">PROJECT</a></li>
+        <li><a href="./getCalendar.do">CALENDAR</a></li>
+        <li><a href="./paging.do">BOARD</a></li>
 <!--         <li><a href="./getBoardList.do">게시판</a></li> -->
         
         <!-- 로그인 유무에 따른 header 변경 시작-->
         <c:choose>
 	        <c:when test="${sessionScope.loginInfo != null}">
-	            <li><a href="./logout.do">로그아웃</a></li>
+	            <li><a href="./logout.do">LOGOUT</a></li>
 	            <li><input type="hidden" id="userID" value="${loginInfo.user_id}"></li>
 	            <li><input type="hidden" value="${loginInfo.password}"></li>
 	            <li><input type="hidden" value="${loginInfo.username}"></li>
@@ -42,7 +42,7 @@
 	            <li><input type="hidden" value="${loginInfo.dropout}"></li>
 	        </c:when>
 	        <c:otherwise>
-	            <li><a href="./loginForm.do">로그인</a></li>
+	            <li><a href="./loginForm.do">LOGIN</a></li>
 	        </c:otherwise>
         </c:choose>
         <!-- 로그인 유무에 따른 header 변경 종료-->

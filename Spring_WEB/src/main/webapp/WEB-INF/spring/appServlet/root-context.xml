@@ -35,4 +35,24 @@
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
 	
+	<!-- 회원가입 메일 인증 -->
+    <bean id="mailSender"    class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" /><!-- 465 or (25비추 평문) or 587 -->
+        <!-- Gmail의 경우 SSL을 사용할 때는 465, TLS를 사용할 때는 587을 사용 -->
+        <property name="username" value="mooo.ak910@gmail.com" />
+        <property name="password" value="tgvz otne fzcm jtyg" />
+        <property name="defaultEncoding" value="utf-8" />
+      <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+
+    </bean>
+	
 </beans>

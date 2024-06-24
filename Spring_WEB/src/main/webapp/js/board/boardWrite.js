@@ -45,7 +45,7 @@
 				// 서버와 통신을 성공했다면 서버가 다시 주는 데이터
                 console.log("업로드 성공", resp);
                 alert("게시글이 성공적으로 등록되었습니다.");
-                window.location.href = "./getBoardList.do";  // 성공 시 목록 페이지로 이동
+                window.location.href = "./paging.do";  // 성공 시 목록 페이지로 이동
             },
             error:function(){
 				// 서버와 통신을 실패했다면

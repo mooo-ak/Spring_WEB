@@ -9,6 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홈페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/homepage.css">
 <link rel="stylesheet" href="./css/login.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -136,37 +139,38 @@
 	      <span class="sr-only">Next</span>
 	    </a>
 	  </div>
-	      </div>
-	    </div>
-	    <div class="col-sm-6">
-	      <div class="thumbnail">
+    </div>
+   </div>
+
+	    <div class="col-sm-6 pjoject_description">
+	      <div class="thumbnail p">
 <!-- 	        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300"> -->
 			<div class="project_description_main">
-				<b>사용자의 스케줄 관리를 도울 수 있는 일정 캘린더</b> 입니다. <br>
-				캘린더 API를 사용해서 프로그램을 만들어보고 싶어 개발하였습니다.
+				로그인 없이도 <b>모든 사용자가 이용할 수 있는 게시판</b>을 구현하였습니다. <br>
+				게시판은 신입 개발자로서 구현해야할 기본 소양이라고 생각하고 CRUD를 기반으로 만들어보았습니다.
 				<p></p>
-				사용자의 편의를 고려하여, 개발하며
-				<span class="emphasize">Full Calendar</span>
-				외에도
-				<span class="emphasize">Google Calendar</span>
-				를 사용하여 공휴일을 표시하고
-				<span class="emphasize">DateTimePicker</span>
-				를 통해 구체적인 시간까지 등록할 수 있도록 구현하였습니다.
+				실제 사용자가 소통을 위해 이용하는 게시판이라 가정하고
+				<span class="emphasize">commons-fileupload</span>
+				를 이용하여 게시글의 파일을 등록하고 조회시 다운로드 받을 수 있도록 만들었으며,
+				<span class="emphasize">Panination</span>
+				을 직접 구현하며 서버에서 필요한 정보를 가져올 수 있도록 로직을 생각하며
+				<span class="emphasize">SQL문</span>
+				을 작성하였습니다.
 				<p></p>
-				<span class="emphasize">API 공식문서</span>
-				를 보고 사용하는데 익숙해지고자, 되도록 공식 문서에 나와있는 메서드를 활용해 기능을 구현하고자 하였으며, 
-				개발을 하며 
-				<span class="emphasize">코드 리팩토링</span>
-				과
-				<span class="emphasize">유지보수를 고려한 코드</span>
-				 작성의 중요성을 몸소 깨달았습니다.
+				사용자로써 이용할때엔 간단하게 생각했던 기능들도 직접 구현함에 있어 세세한 조건 설정과
+				<span class="emphasize">알고리즘</span>
+				으로 구성되어 있음을 깨닫고, 사용자가 아닌 개발자의 관점에서 모든 서비스를 바라보는
+				<span class="emphasize">관점</span>
+				으로 바뀌는 계기가 되었습니다.
+<!-- 				<span class="emphasize">유지보수를 고려한 코드</span> -->
+<!-- 				 작성의 중요성을 몸소 깨달았습니다. -->
 			</div>
 			<div class="project_description_sub">
 				<div>
 					<div class="description_subtitle">주요기능</div>
 					<div class="description_subbody">
-						<p>조건부 렌더링 (로그인 여부에 따른 다른 캘린더 표시)</p>
-						<p>모달창을 통한 일정 등록 / 상세조회 / 수정 / 삭제</p>
+						<p>조건부 렌더링 (로그인 여부에 따른 작성자 username readonly)</p>
+						<p>게시글 등록 / 상세조회 / 수정 / 삭제</p>
 						<p>Ajax를 통한 비동기 요청 사용</p>
 					</div>
 				</div>
@@ -203,9 +207,10 @@
 			</div>
 	      </div>
 	    </div>
+	    
 	  </div><br>
 	  
-	  <h2>What our customers say</h2>
+<!-- 	  <h2>What our customers say</h2> -->
 	  
 	</div>
 			
