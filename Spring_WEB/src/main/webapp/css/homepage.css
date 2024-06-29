@@ -150,6 +150,9 @@
     height: 100%;
     margin-bottom: 10px;
   }
+  .thumbnail > p {
+  text-align: left;
+  }
   .hashtag {
   	font-size: 13.5px;
     font-style: italic;

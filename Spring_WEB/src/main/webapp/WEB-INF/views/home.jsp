@@ -35,7 +35,7 @@
 	
 	<!-- Container (About Section) -->
 	<div id="about" class="container-fluid">
-	  <div class="row ">
+	  <div class="row">
 	    <div class="col-sm-8 aboutSection">
         <div class="aboutMeTable">
           <h2 class="aboutMe">About Me</h2>	      
@@ -193,8 +193,22 @@
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>I learned it</strong></p>
-		       <p></p>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p>
+			       <span class="emphasize">Full Calendar</span>와 
+			       <span class="emphasize">Google Calendar</span> 연동 기능을 구현하고, 
+			       <span class="emphasize">datetimepicker</span>를 통해 사용자 친화적 인터페이스를 <br>구축하였습니다.</p>
+		       <p>국비지원 학원에서 팀 프로젝트를 진행할 당시, 
+		       	   <span class="emphasize">기한 내에 기능 구현에 집중하느라 API 문서를 충분히 이해하고 활용하지 못한 아쉬움</span>이 남았습니다.
+				  이러한 부족함을 보완하고자 개인 프로젝트를 진행하며 공식 API 문서를 참고하여 
+				  <span class="emphasize">API를 제대로 활용하는 방법을 배우는 것을 목표</span>로 삼았습니다. 
+				  블로그보다는 공식 문서를 주로 참고하며 API 메서드를 적용하려 노력했고, 
+				  실제 데이터베이스에서 데이터를 프론트엔드로 가져오는 과정을 간소화하여 <span class="emphasize">코드의 가독성</span>을 높였습니다.
+				</p>
+				<p>이 과정을 통해 가독성 좋은 코드가 <span class="emphasize">유지보수가 더욱 용이</span>하다는 것을 체감할 수 있었습니다. 
+				   이후 공식 문서를 빠르게 파악하고 적용하는 능력이 향상되어 다른 API를 적용하며 기능구현 시간을 단축할 수 있었습니다.
+		        </p>
+		       
 		    </div>
 	      </div>
 	    </div>
@@ -211,9 +225,21 @@
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>상세설명입니다</strong></p>
-		       <p>프로젝트 1 설명글 입니다</p>
-		       <button class="btn btn-default btn-lg" style="margin: 5px; font-weight: bold;">Click</button>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p>
+		       		사용자가 게시글과 함께 필요한 파일을 업로드하고,<br> 조회된 게시글에 포함된 첨부파일이 다운로드 될 수 있도록<br> 기능을 개발하였습니다. 
+		       </p>
+		       <p>
+			       	파일업로드 구현시 <span class="emphasize">데이터를 저장하는 로컬 폴더를 만드는 부분에서 로직을 이해</span>하는데 초반에 어려움이 있었습니다.
+					라이브러리 기능을 활용하여 로컬 내 데이터를 저장하는 폴더를 생성하는 기능을 제공하지만, 
+					실제 서비스를 배포한다는 전제하에 개발자의 로컬 컴퓨터에 파일을 저장하는 것보다 
+					<span class="emphasize">서버에서 관리하는 것이 보안상 더욱 이점</span>이 있다고 판단하였습니다. 
+					폴더 생성 과정을 생략하는 대신 업로드된 파일에 대한 메타데이터(파일 이름, 저장 경로 등)는 데이터베이스에 저장하여 쉽게 관리할 수 있도록 하였습니다. 
+		       </p>
+		       <p>
+		       		또한 파일업로드에 관련된 모든 작업은 <span class="emphasize">transaction</span>으로 묶어서 처리함으로써 
+					데이터베이스와의 일관성을 유지하고 <span class="emphasize">데이터 손실을 방지</span>하는데 포커싱 하였습니다.
+		       </p>
 		    </div>
 	      </div>
 	    </div>
@@ -233,9 +259,25 @@
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>상세설명입니다</strong></p>
-		       <p>프로젝트 1 설명글 입니다</p>
-		       <button class="btn btn-default btn-lg" style="margin: 5px; font-weight: bold;">Click</button>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p>
+					이 웹페이지는 채용 담당자분들께 문서로만 드리는 인사보다, <br>
+					<span class="emphasize">신입 개발자로서 필수적인 역량</span>을 직접 보고 판단하실 수 있도록 제작하였습니다. 
+					웹사이트 전반에 걸쳐 <span class="emphasize">Bootstrap을 활용하여 <br>
+					반응형 디자인을 구현</span>하였으며, 
+					필요한 부분은 <span class="emphasize">CSS를 커스터마이징</span>하여 직관적이고 깔끔한 UI를 제공함으로써
+					사용자 친화적인 환경을 조성하고자 하였습니다. 
+			   </p>
+			   <p>
+			   		API를 적용함에 있어 <span class="emphasize">성능 최적화를 위해 CDN을 활용</span>하여 로딩 속도를 개선하고 
+			   		서버의 부하를 줄이고자 하였습니다.
+					총 7가지 API를 사용해보았고 CRUD를 중심으로 <span class="emphasize">실무에서 요구되는 다양한 기능을 구현</span>하였습니다.
+			   </p>
+			   <p>
+			   		개발하는 동안, <span class="emphasize">JUnit을 활용</span>하여 단위 테스트를 진행하였고, 
+			   		<span class="emphasize">Postman을 통해 기능 테스트</span>를 하였습니다. 
+			   		또한 프로젝트를 GitHub와 연동하여 프로젝트 관리 습관을 기르며 개발자로서 좋은 업무 태도를 습관화 하기위해 노력하였습니다.
+			   </p>
 		    </div>
 	      </div>
 	    </div>
@@ -252,9 +294,24 @@
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>상세설명입니다</strong></p>
-		       <p>프로젝트 1 설명글 입니다</p>
-		       <button class="btn btn-default btn-lg" style="margin: 5px; font-weight: bold;">Click</button>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p>이 기능은 <span class="emphasize">JavaMail API를 활용하여 구현</span>하였으며, 웹페이지를 내 소통을 위한 메일링 기능을 제공합니다.</p>
+		       <p>
+		       		JavaMail API는 다양한 이메일 기능을 쉽게 구현할 수 있는 강력한 라이브러리로
+		       		특히, <span class="emphasize">SMTP 서버를 설정</span>하여 
+		       		다양한 메일 서버와의 호환성을 제공한다는 점에서 매우 유용하다 판단하여 기능 구현시 사용 API로 선택하였습니다.       		
+		       </p>
+		       <p>
+		       		사용자 인터페이스 측면에서는 복잡한 절차 없이 쉽게 이메일을 작성하고 보낼 수 있도록
+		       		최대한 <span class="emphasize">간단하고 직관적인 UI</span>를 구현하였습니다.
+		       </p>
+		       <p>
+		       		이메일 전송 과정에서 보안을  중요한 요소로 고려하였으며,
+		       		이를 위해 Google 메일과의 연동 과정에서 최신 버전을 사용하여 SSL (Secure Sockets Layer) 등의 보안 프로토콜을 적용하였습니다. 
+		       		뿐만 아니라, <span class="emphasize">App key를 활용</span>하여 인증된 사용자만이 
+		       		시스템을 사용할 수 있도록 보안 및 데이터 보호를 강화하였습니다.
+		       		
+		       </p>
 		    </div>
 	      </div>
 	    </div>
@@ -267,16 +324,30 @@
 		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
 	    	   <div class="thumbnail_content">
 			       <p><strong>마춤뻡 테스트</strong></p>
-			       <p>맞춤법을 자주 틀리는 친구를 위해 개발한 테스트입니다.</p>
+			       <p>맞춤법을 자주 틀리는 친구를 위해 개발한 토이프로젝트입니다.</p>
 			       <p class="hashtag">#배포경험 #Javascript #친구야 #좋아해</p>
 		       </div>
 	    	</div>
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>상세설명입니다</strong></p>
-		       <p>프로젝트 1 설명글 입니다</p>
-		       <button class="btn btn-default btn-lg" style="margin: 5px; font-weight: bold;">Click</button>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p>개인적인 학습을 목표로 <span class="emphasize">기획부터 배포까지</span>
+		       모든 과정을 직접 경험해 보기 위해 제작한 개인 토이 프로젝트입니다.</p>
+		       <p>
+		       		이 프로젝트의 주요 기획 의도는 자주 맞춤법을 틀리는 친구가 기분 나쁘지 않도록 존중하면서 
+		       		올바른 맞춤법을 자연스럽게 익힐 수 있도록 돕기 위해 배운 개발 기술을 적용하여 구현하였습니다.		       		
+		       </p>
+		       <p>
+		       		대부분의 심리테스트는 JavaScript만을 이용하여 클라이언트 측에서 구현되는 경우가 많지만, 
+		       		<span class="emphasize">학습을 위해 Spring MVC 프레임워크를 활용</span>하여 
+		       		서버-클라이언트 분리하며 결과에 따른 ID를 통해 점수에 따라 상이한 결과를 반환하도록 설계하였습니다.
+		       </p>
+		       <p>
+		       		프로젝트의 배포 과정에서는 <span class="emphasize">Ngrok을 이용</span>하여 임시 배포를 경험해 보았으며, 
+		       		이후 <span class="emphasize">Jenkins와 AWS를 활용하여 실제 배포까지 진행</span>하였습니다. <br>
+		       		이를 통해 웹서비스의 전반적인 흐름을 직접 체험하고, 배포 과정에서 발생할 수 있는 문제들을 해결하는 능력을 기를 수 있었습니다.
+		       </p>
 		    </div>
 	      </div>
 	    </div>
@@ -293,9 +364,24 @@
 	      </div>
 	      <div class="back">
 	      	<div class="thumbnail">
-		       <p><strong>상세설명입니다</strong></p>
-		       <p>프로젝트 1 설명글 입니다</p>
-		       <button class="btn btn-default btn-lg" style="margin: 5px; font-weight: bold;">Click</button>
+		       <p style="font-size: 18px;"><strong>I learned it</strong></p>
+		       <p> 
+		       		이 프로젝트는 사내 업무 효율성을 극대화하기 위해 개발한 가상의 고객사를 대상으로 한 그룹웨어 시스템입니다.     
+		       </p>
+		       <p>
+		       		저는 HCM 프로젝트에서 6명으로 구성된 <span class="emphasize">팀 내 문서관리자와 전자결재 기능 개발</span>을 맡았습니다.
+		       </p>
+		       <p>
+		       		첫 번째 팀 프로젝트임에도 불구하고, 저는 신입 개발자의 자세로 프로젝트에 적극적으로 참여했습니다. 
+		       		문서관리자로서 책임감을 가지고 필요한 개발 문서를 체계적으로 작성하고 팀원들과 공유함으로써 
+		       		프로젝트의 효율성을 높이는 데 기여했습니다. 
+		       		또한, 간이식으로 회의 내용을 정리하여 개발 일정을 지키도록 지원했습니다.
+		       </p>
+		       <p>
+		       		이로 인해 <span class="emphasize">데이터 충돌 문제를 최소화</span>하고 기한 내 프로젝트를 비교적 원활히 진행할 수 있었습니다. 
+		       		이 경험을 통해 <span class="emphasize">프로젝트 초기에 사전 문서화가 중요함</span>을 몸소 깨달았으며, 
+		       		<span class="emphasize">신입 개발자로서의 자세와 팀 내 소통과 협력을 더욱 강화</span>할 수 있는 계기가 되었습니다
+		       </p>
 		    </div>
 	      </div>
 	    </div>
