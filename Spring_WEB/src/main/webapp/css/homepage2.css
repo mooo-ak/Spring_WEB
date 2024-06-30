@@ -1,0 +1,12 @@
+/* 작은 화면에서 카드들이 세로로 나열되도록 합니다. */
+@media (max-width: 576px) {
+    .cardrow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+}

@@ -149,14 +149,14 @@
 		    </ol>
 		
 		    <div class="carousel-inner" role="listbox">
-		      <div class="item active">
+		      <div id="attachImg" class="item active">
 				<img src="./img/calendar/캘린더01.png" alt="Test Img" width="400" height="300">
 <!-- 				<img src="./img/꼬부기.png" alt="Test Img" width="400" height="300"> -->
 		      </div>
-		      <div class="item">
+		      <div id="attachImg" class="item">
 		        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300">
 		      </div>
-		      <div class="item">
+		      <div id="attachImg" class="item">
 		        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300">
 		      </div>
 		    </div>

@@ -11,6 +11,8 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="./css/homepage.css">
+<link rel="stylesheet" href="./css/media.css">
+<!-- <link rel="stylesheet" href="./css/media2.css"> -->
 <link rel="stylesheet" href="./css/login.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -41,11 +43,11 @@
           <h2 class="aboutMe">About Me</h2>	      
         </div>
 	    <div class="aboutbody">
-	    <div>
+	    <div class="col-sm-6 text-center">
 	      <img class="profileImg" alt="메인사진.jpg" src="./img/메인사진.jpg">
 	    </div>
 	    
-        <div class="aboutContent">
+        <div class="col-sm-6 aboutContent">
         	<div class="aboutContent-wrap">
         	<div class="contentDiv">
         	<div class="aboutImg"><img src="./img/about/user.png"></div>    
@@ -179,11 +181,12 @@
 	  <h2>Project</h2><br>
 	  <h4>What I have created</h4>
 	  <!-- section_01 -->
+	  <div class="parent-cardrow">
 	  <div class="row text-center slideanim cardrow">
-	    <div class="card">
+	    <div class="card firstCard">
 	      <div class="front">
       		<div class="thumbnail">
-		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
+		       <img src="./img/calendar/calendar.png" alt="test">
 		       <div class="thumbnail_content">
 			       <p><strong>일정관리 캘린더</strong></p>
 			       <p>로그인한 사용자의 일정관리를 도울 수 있는 캘린더 기능입니다.</p>
@@ -212,7 +215,7 @@
 		    </div>
 	      </div>
 	    </div>
-	    <div class="card">
+	    <div class="card secondCard">
 	      <div class="front">
       		<div class="thumbnail">
 		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
@@ -243,6 +246,7 @@
 		    </div>
 	      </div>
 	    </div>
+	    </div>
 	  </div><br>
 	  <!-- section_02 -->
 	  <div class="row text-center slideanim cardrow">
@@ -264,7 +268,7 @@
 					이 웹페이지는 채용 담당자분들께 문서로만 드리는 인사보다, <br>
 					<span class="emphasize">신입 개발자로서 필수적인 역량</span>을 직접 보고 판단하실 수 있도록 제작하였습니다. 
 					웹사이트 전반에 걸쳐 <span class="emphasize">Bootstrap을 활용하여 <br>
-					반응형 디자인을 구현</span>하였으며, 
+					최대한 반응형 디자인으로 구현</span>하였으며, 
 					필요한 부분은 <span class="emphasize">CSS를 커스터마이징</span>하여 직관적이고 깔끔한 UI를 제공함으로써
 					사용자 친화적인 환경을 조성하고자 하였습니다. 
 			   </p>

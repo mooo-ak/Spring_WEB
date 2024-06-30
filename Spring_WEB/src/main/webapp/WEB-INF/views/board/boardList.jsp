@@ -118,13 +118,13 @@
 	
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
-	      <div class="item active">
+	      <div id="attachImg" class="item active">
 	        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300">
 	      </div>
-	      <div class="item">
+	      <div id="attachImg" class="item">
 	        <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
 	      </div>
-	      <div class="item">
+	      <div id="attachImg" class="item">
 	        <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
 	      </div>
 	    </div>
@@ -169,7 +169,7 @@
 				<div>
 					<div class="description_subtitle">주요기능</div>
 					<div class="description_subbody">
-						<p>조건부 렌더링 (로그인 여부에 따른 작성자 username readonly)</p>
+						<p>조건부 렌더링 (로그인에 따른 username readonly)</p>
 						<p>게시글 등록 / 상세조회 / 수정 / 삭제</p>
 						<p>Ajax를 통한 비동기 요청 사용</p>
 					</div>
