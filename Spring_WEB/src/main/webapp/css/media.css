@@ -33,6 +33,7 @@
     height: 110vh;
     position: relative;
     align-items: center;
+    margin: 0;
 	}
 	.card {
 	width: 100%;
@@ -42,6 +43,18 @@
 	position: relative;
 	}
 
+	.back > .thumbnail{
+	height:350px;
+	overflow-y: auto;
+	}
+	#project-Img {
+	margin: 0;
+	}
+	#project-content {
+	height:380px;
+	overflow-y: auto;
+	margin: 0;
+	}
 	.thumbnail {
 	width: 100%;
 /* 	height:350px; */
@@ -52,11 +65,26 @@
     border-radius: 10px;
     margin: 25px 0;
 	}
-	
-	.back > .thumbnail {
-	height:350px;
-	overflow-y: auto;
+	.boardlst {
+	padding-left: 0;
+	padding-right: 0;	
 	}
-
 	
+	.table-header:nth-child(3),
+    .table-header:nth-child(4),
+    .table-cell:nth-child(3),
+    .table-cell:nth-child(4){
+    display: none;
+	}
+	.table-header:nth-child(1),
+	.table-header:nth-child(5) {
+	width: 15%;
+	}
+	.fc-toolbar-title {
+	text-align: center;
+	}
+	.fc-toolbar-chunk {
+	position: relative;
+    display: inline-flex;	
+	}
 }

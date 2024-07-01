@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="./css/calendar.css">
+<link rel="stylesheet" href="./css/media.css">
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,7 +142,7 @@
 	  <h4>What I have created</h4>
 	  <div class="row slideanim">
 	    <div class="col-sm-6">
-	      <div class="thumbnail">
+	      <div id="project-Img" class="thumbnail">
 			<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
 		    <ol class="carousel-indicators">
 		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -154,10 +156,10 @@
 <!-- 				<img src="./img/꼬부기.png" alt="Test Img" width="400" height="300"> -->
 		      </div>
 		      <div id="attachImg" class="item">
-		        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300">
+		        <img src="./img/calendar/캘린더02.png" alt="Test Img" width="400" height="300">
 		      </div>
 		      <div id="attachImg" class="item">
-		        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300">
+		        <img src="./img/calendar/캘린더03.png" alt="Test Img" width="400" height="300">
 		      </div>
 		    </div>
 		
@@ -174,7 +176,7 @@
 		      </div>
 		    </div>
 		    <div class="col-sm-6">
-		      <div class="thumbnail">
+		      <div id="project-content" class="thumbnail">
 	<!-- 	        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300"> -->
 				<div class="project_description_main">
 					<b>사용자의 스케줄 관리를 도울 수 있는 일정 캘린더</b> 입니다. <br>
@@ -208,31 +210,31 @@
 					<div>
 						<div class="description_subtitle">GitHub</div>
 						<div class="description_subbody">
-							<p>https://github.com/mooo-ak/Spring_WEB</p>
+							<p><a href="https://github.com/mooo-ak/Spring_WEB">Spring_WEB 프로젝트</a></p>
 						</div>
 					</div>
 					<div>
 						<div class="description_subtitle">Frontend</div>
 						<div class="description_subbody">
-							<p>HTML, CSS, JavaScript</p>
+							<p>HTML, CSS, JavaScript, BootStrap</p>
 						</div>
 					</div>
 					<div>
 						<div class="description_subtitle">Backend</div>
 						<div class="description_subbody">
-							<p>Spring Framework, </p>
+							<p>Spring MVC, JAVA</p>
 						</div>
 					</div>
 					<div>
 						<div class="description_subtitle">Database</div>
 						<div class="description_subbody">
-							<p>Oracle</p>
+							<p>Oracle Database</p>
 						</div>
 					</div>
 					<div>
-						<div class="description_subtitle">Deployment</div>
+						<div class="description_subtitle">Deploy</div>
 						<div class="description_subbody">
-							<p></p>
+							<p>Oracle Cloud</p>
 						</div>
 					</div>
 				</div>

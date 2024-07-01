@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/homepage.css">
 <link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/media.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="./js/homepage.js"></script>
@@ -34,25 +35,25 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>글쓴이</th>
-						<th>날짜</th>
-						<th>조회</th>
+						<th class="table-header">번호</th>
+						<th class="table-header">제목</th>
+						<th class="table-header">글쓴이</th>
+						<th class="table-header">날짜</th>
+						<th class="table-header">조회</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach var="lst" items="${pagingList}" varStatus="vs">
 	            <c:if test="${lst.b_delflag == 'N'}">
 	                <tr onclick="location.href='./getDetailBoard.do?b_seq=${lst.b_seq}&currentPage=${pagenation.currentPage }';" style="cursor: pointer;">
-	                    <td>${lst.b_no}</td>
-	                    <td><strong>${lst.b_title}</strong></td>
-	                    <td>${lst.b_writer}</td>
-	                    <td>
+	                    <td class="table-cell" data-label="번호">${lst.b_no}</td>
+	                    <td class="table-cell" data-label="제목"><strong>${lst.b_title}</strong></td>
+	                    <td class="table-cell" data-label="글쓴이">${lst.b_writer}</td>
+	                    <td class="table-cell" data-label="날짜">
 	                    	<fmt:parseDate var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss" value="${lst.b_createAt}"  />
 							<fmt:formatDate pattern="yyyy-MM-dd" value="${parsedDate}" />
 	                    </td>
-	                    <td>${lst.b_viewcount}</td>
+	                    <td class="table-cell" data-label="조회">${lst.b_viewcount}</td>
 	                </tr>
 	            </c:if>
 	        	</c:forEach>
@@ -104,7 +105,7 @@
 <!-- 	      </div> -->
 <!-- 	    </div> -->
 	    <div class="col-sm-6">
-	      <div class="thumbnail">
+	      <div id="project-Img" class="thumbnail">
 <!-- 	        <img src="./img/꼬부기.png" alt="Test Img" width="400" height="300"> -->
 <!-- 	        <p><strong>New York</strong></p> -->
 <!-- 	        <p>We built New York</p> -->
@@ -143,7 +144,7 @@
    </div>
 
 	    <div class="col-sm-6 pjoject_description">
-	      <div class="thumbnail p">
+	      <div id="project-content" class="thumbnail p">
 <!-- 	        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300"> -->
 			<div class="project_description_main">
 				로그인 없이도 <b>모든 사용자가 이용할 수 있는 게시판</b>을 구현하였습니다. <br>
@@ -183,13 +184,13 @@
 				<div>
 					<div class="description_subtitle">Frontend</div>
 					<div class="description_subbody">
-						<p>HTML, CSS, JavaScript</p>
+						<p>HTML, CSS, JavaScript, BootStrap</p>
 					</div>
 				</div>
 				<div>
 					<div class="description_subtitle">Backend</div>
 					<div class="description_subbody">
-						<p>Spring Framework, </p>
+						<p>Spring Framework, JAVA</p>
 					</div>
 				</div>
 				<div>
@@ -199,7 +200,7 @@
 					</div>
 				</div>
 				<div>
-					<div class="description_subtitle">Deployment</div>
+					<div class="description_subtitle">Deploy</div>
 					<div class="description_subbody">
 						<p></p>
 					</div>

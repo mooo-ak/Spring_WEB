@@ -160,7 +160,7 @@
 	          <div class="skill_title_text">Deployment</div>
 	        </div>
 	        <div class="panel-body">
-			  <img class="skills_img" src="/images/skills/frontend.png" alt="">
+			  <img class="skills_img" src="./img/skills/deploy.png" alt="">
 	        </div>
 	      </div>      
 	    </div><div class="col-sm-4 col-xs-12">
@@ -253,7 +253,7 @@
 	    <div class="card">
 	      <div class="front">
       		<div class="thumbnail">
-		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
+		       <img src="./img/project/mypage.png" alt="test" width="400" height="300">
 		       <div class="thumbnail_content">
 			       <p><strong>자기소개 웹페이지</strong></p>
 			       <p>포트폴리오 용도로서 제작한 웹사이트입니다.</p>
@@ -288,7 +288,7 @@
 	    <div class="card">
 	      <div class="front">
       		<div class="thumbnail">
-		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
+		       <img src="./img/project/mailing.png" alt="test" width="400" height="300">
 	    		<div class="thumbnail_content">
 			       <p><strong>메일링 서비스</strong></p>
 			       <p>웹페이지 내 소통을 위해 추가한 메일링 기능입니다.</p>
@@ -325,7 +325,7 @@
 	    <div class="card">
 	      <div class="front">
       		<div class="thumbnail">
-		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
+		       <img src="./img/project/toyproject.png" alt="test" width="400" height="300">
 	    	   <div class="thumbnail_content">
 			       <p><strong>마춤뻡 테스트</strong></p>
 			       <p>맞춤법을 자주 틀리는 친구를 위해 개발한 토이프로젝트입니다.</p>
@@ -358,7 +358,7 @@
 	    <div class="card">
 	      <div class="front">
       		<div class="thumbnail">
-		       <img src="./img/calendar/calendar.png" alt="test" width="400" height="300">
+		       <img src="./img/project/HCM.png" alt="test" width="400" height="300">
 		       <div class="thumbnail_content">
 			       <p><strong>HCM 그룹웨어</strong></p>
 			       <p>업무효율 증대를 목표로 개발한 사내 그룹웨어 서비스입니다.</p>

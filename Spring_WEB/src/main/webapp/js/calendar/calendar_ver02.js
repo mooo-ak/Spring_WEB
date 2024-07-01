@@ -36,7 +36,7 @@ var calendarUserOption = {
 	dayMaxEvents: true, // 이벤트가 너무 많을때 + more
 	eventLimit: true,
 	droppable : true,
-	editable : true,
+	editable : false,
 	headerToolbar: headerUserOption, // 캘린더 Header 설정 
 	
 	// 캘린더 데이터(resource) 불러오기 (JSON)
